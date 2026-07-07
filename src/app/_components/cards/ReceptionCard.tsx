@@ -12,7 +12,7 @@ function HaciendaSVG() {
     const paths = svgRef.current.querySelectorAll("path, line, rect, ellipse, circle");
     paths.forEach((p) => {
       const el = p as SVGGeometryElement;
-      if (el.getTotalLength) {
+      if ("getTotalLength" in el) {
         const len = el.getTotalLength();
         gsap.set(el, { strokeDasharray: len, strokeDashoffset: len });
       }
@@ -23,7 +23,7 @@ function HaciendaSVG() {
         if (entry.isIntersecting) {
           paths.forEach((p, i) => {
             const el = p as SVGGeometryElement;
-            if (el.getTotalLength) {
+            if ("getTotalLength" in el) {
               gsap.to(el, {
                 strokeDashoffset: 0,
                 duration: 1.5,
