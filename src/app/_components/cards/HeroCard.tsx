@@ -1,88 +1,122 @@
 "use client";
 
-import AnimatedCard, { Stagger } from "../AnimatedCard";
+import { motion } from "framer-motion";
+import { Stagger } from "../AnimatedCard";
 
 export default function HeroCard() {
   return (
-    <AnimatedCard className="card-arch text-center py-10 px-6">
-      {/* Oval frame like the reference */}
-      <div className="oval-frame mx-auto">
-        <Stagger>
-          <p
-            className="font-serif italic text-xs"
-            style={{ color: "var(--olive-soft)" }}
+    <motion.section
+      className="relative w-[92vw] max-w-[400px] mx-auto mb-10"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
+      {/* Flat-lay: envelope with botanical liner behind the card */}
+      <div className="relative pt-10 pb-6">
+        {/* Envelope body (olive) */}
+        <div
+          className="absolute inset-x-2 top-0 bottom-6 rounded-[3px] overflow-hidden"
+          style={{
+            backgroundColor: "var(--olive-primary)",
+            backgroundImage: "url('/paper-olive.jpg')",
+            backgroundSize: "cover",
+            boxShadow: "0 14px 40px rgba(59,48,40,0.22)",
+          }}
+        >
+          {/* Botanical liner peeking at top */}
+          <div
+            className="absolute inset-x-0 top-0 h-[38%]"
+            style={{
+              backgroundImage: "url('/liner-band.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center top",
+              clipPath: "polygon(0 0, 100% 0, 100% 55%, 50% 100%, 0 55%)",
+            }}
+          />
+        </div>
+
+        {/* The invitation card on top, ornate frame */}
+        <motion.div
+          className="relative mx-4 mt-8 mb-2"
+          initial={{ opacity: 0, y: 20, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.35, duration: 0.6, ease: "easeOut" }}
+        >
+          <div
+            className="ornate-card text-center px-6 py-9"
+            style={{
+              backgroundColor: "var(--bg-cream)",
+              backgroundImage: "url('/paper-linen.jpg')",
+              backgroundSize: "cover",
+              boxShadow: "0 8px 24px rgba(59,48,40,0.18)",
+            }}
           >
-            Con la bendición de Dios
-          </p>
-        </Stagger>
-        <Stagger>
-          <p
-            className="font-serif italic text-xs mb-4"
-            style={{ color: "var(--olive-soft)" }}
-          >
-            y el amor de nuestros padres
-          </p>
-        </Stagger>
+            <Stagger>
+              <p className="font-serif italic text-xs" style={{ color: "var(--olive-soft)" }}>
+                Con la bendición de Dios
+              </p>
+            </Stagger>
+            <Stagger>
+              <p className="font-serif italic text-xs mb-4" style={{ color: "var(--olive-soft)" }}>
+                y el amor de nuestros padres
+              </p>
+            </Stagger>
 
-        <Stagger>
-          <p className="font-sans-label mb-3" style={{ color: "var(--olive-soft)", fontSize: "0.55rem" }}>
-            NOSOTROS
-          </p>
-        </Stagger>
+            <Stagger>
+              <p className="font-sans-label mb-2" style={{ color: "var(--olive-soft)", fontSize: "0.5rem" }}>
+                NOSOTROS
+              </p>
+            </Stagger>
 
-        <Stagger>
-          <h1
-            className="font-script"
-            style={{ color: "var(--olive-primary)", fontSize: "2.6rem", lineHeight: 1 }}
-          >
-            Laura
-          </h1>
-        </Stagger>
-        <Stagger>
-          <p className="font-script" style={{ color: "var(--gold-antique)", fontSize: "1.6rem" }}>
-            &
-          </p>
-        </Stagger>
-        <Stagger>
-          <h1
-            className="font-script mb-3"
-            style={{ color: "var(--olive-primary)", fontSize: "2.6rem", lineHeight: 1 }}
-          >
-            Jorge
-          </h1>
-        </Stagger>
+            <Stagger>
+              <h1 className="font-script" style={{ color: "var(--olive-primary)", fontSize: "3rem", lineHeight: 0.95 }}>
+                Laura
+              </h1>
+            </Stagger>
+            <Stagger>
+              <p className="font-script" style={{ color: "var(--gold-antique)", fontSize: "1.7rem", lineHeight: 1 }}>
+                &
+              </p>
+            </Stagger>
+            <Stagger>
+              <h1 className="font-script mb-3" style={{ color: "var(--olive-primary)", fontSize: "3rem", lineHeight: 0.95 }}>
+                Jorge
+              </h1>
+            </Stagger>
 
-        <Stagger>
-          <div className="divider" />
-        </Stagger>
+            <Stagger>
+              <div className="fleuron">
+                <span style={{ color: "var(--gold-antique)" }}>&#10086;</span>
+              </div>
+            </Stagger>
 
-        <Stagger>
-          <p className="font-serif italic text-xs mt-2" style={{ color: "var(--ink-dark)" }}>
-            Tenemos el honor de invitarles
-            <br />a nuestra boda
-          </p>
-        </Stagger>
+            <Stagger>
+              <p className="font-serif italic text-xs mt-2" style={{ color: "var(--ink-dark)" }}>
+                Tenemos el honor de invitarles
+                <br />a nuestra boda
+              </p>
+            </Stagger>
 
-        <Stagger>
-          <div className="flex items-center justify-center gap-2 mt-3">
-            <span className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "1.3rem" }}>
-              15
-            </span>
-            <span className="font-sans-label" style={{ color: "var(--olive-soft)", fontSize: "0.5rem" }}>DE</span>
-            <span className="font-sans-label" style={{ color: "var(--olive-soft)", fontSize: "0.55rem" }}>AGOSTO</span>
-            <span className="font-sans-label" style={{ color: "var(--olive-soft)", fontSize: "0.5rem" }}>DE</span>
-            <span className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "1.3rem" }}>
-              2026
-            </span>
+            <Stagger>
+              <div className="flex items-center justify-center gap-2 mt-4">
+                <span className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "1.4rem" }}>15</span>
+                <span className="font-sans-label" style={{ color: "var(--olive-soft)", fontSize: "0.5rem" }}>DE</span>
+                <span className="font-sans-label" style={{ color: "var(--olive-soft)", fontSize: "0.6rem" }}>AGOSTO</span>
+                <span className="font-sans-label" style={{ color: "var(--olive-soft)", fontSize: "0.5rem" }}>DE</span>
+                <span className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "1.4rem" }}>2026</span>
+              </div>
+            </Stagger>
+
+            <Stagger>
+              <p className="font-script mt-2" style={{ color: "var(--olive-soft)", fontSize: "1rem" }}>
+                Delicias, Chihuahua
+              </p>
+            </Stagger>
           </div>
-        </Stagger>
-
-        <Stagger>
-          <p className="font-script mt-3" style={{ color: "var(--olive-soft)", fontSize: "0.9rem" }}>
-            Delicias, Chihuahua
-          </p>
-        </Stagger>
+        </motion.div>
       </div>
-    </AnimatedCard>
+    </motion.section>
   );
 }

@@ -143,6 +143,45 @@ body {
   margin: 0 auto;
 }
 
+/* Ornate double-line frame with corner accents */
+.ornate-card {
+  position: relative;
+}
+.ornate-card::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--gold-antique);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.ornate-card::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 0.5px solid var(--olive-soft);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Fleuron ornament divider */
+.fleuron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.6rem auto;
+  font-size: 0.9rem;
+}
+.fleuron::before,
+.fleuron::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-antique), transparent);
+  opacity: 0.6;
+}
+
 /* ── Utilities ── */
 
 .divider {
