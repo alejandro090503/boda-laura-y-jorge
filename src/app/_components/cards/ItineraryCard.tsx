@@ -1,6 +1,7 @@
 "use client";
 
 import AnimatedCard, { Stagger } from "../AnimatedCard";
+import { OliveBranch } from "../Ornaments";
 
 const events = [
   { time: "5:00 PM", label: "Ceremonia religiosa" },
@@ -13,11 +14,17 @@ const events = [
 
 export default function ItineraryCard() {
   return (
-    <AnimatedCard className="card-arch text-center">
+    <AnimatedCard className="card-arch tex-beige text-center">
       <Stagger>
-        <p className="font-sans-label mb-6" style={{ color: "var(--gold-antique)" }}>
+        <p className="font-sans-label mb-2" style={{ color: "var(--gold-antique)" }}>
           ITINERARIO
         </p>
+      </Stagger>
+
+      <Stagger>
+        <div className="flex justify-center mb-5">
+          <OliveBranch width={100} color="var(--olive-soft)" />
+        </div>
       </Stagger>
 
       <div className="relative">

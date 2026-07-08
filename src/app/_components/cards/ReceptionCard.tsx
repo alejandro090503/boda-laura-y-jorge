@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import AnimatedCard, { Stagger } from "../AnimatedCard";
+import { OliveBranch } from "../Ornaments";
 
 function HaciendaSVG() {
   const svgRef = useRef<SVGSVGElement>(null);
@@ -90,6 +91,12 @@ export default function ReceptionCard() {
         <p className="font-script" style={{ color: "var(--bg-cream)", fontSize: "1.5rem" }}>
           Hacienda Santa Cecilia
         </p>
+      </Stagger>
+
+      <Stagger>
+        <div className="flex justify-center mt-1">
+          <OliveBranch width={90} color="var(--gold-antique)" />
+        </div>
       </Stagger>
 
       <Stagger>

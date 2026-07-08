@@ -63,30 +63,53 @@ body {
   position: relative;
   width: 88vw;
   max-width: 370px;
-  margin: 0 auto 1.5rem;
-  padding: 2.5rem 1.75rem;
+  margin: 0 auto 2rem;
+  padding: 2.75rem 2.25rem;
   background-color: var(--bg-cream);
   background-image: url("/paper-linen.jpg");
   background-size: cover;
   background-position: center;
+  border-radius: 3px;
   box-shadow:
-    0 1px 3px rgba(59,48,40,0.06),
-    0 6px 20px rgba(59,48,40,0.06);
+    0 2px 4px rgba(59,48,40,0.08),
+    0 10px 30px rgba(59,48,40,0.12),
+    0 20px 48px rgba(59,48,40,0.06);
 }
 
 .card-base::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: 10px;
   pointer-events: none;
   border: 1px solid var(--beige);
-  border-radius: inherit;
+  border-radius: 2px;
 }
+
+/* Texture variants for depth & variety */
+.tex-aged { background-image: url("/paper-aged.jpg"); }
+.tex-fiber { background-image: url("/paper-fiber.jpg"); }
+.tex-beige {
+  background-image: url("/paper-beige.jpg");
+}
+.tex-beige::before { border-color: rgba(59,48,40,0.15); }
+
+/* Terracotta card */
+.card-terracotta {
+  background-color: var(--terracotta);
+  background-image: url("/paper-terracotta.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--bg-cream);
+}
+.card-terracotta::before { border-color: rgba(245,240,231,0.25); }
 
 /* Arch top */
 .card-arch {
-  border-radius: 50% 50% 2px 2px / 18% 18% 0 0;
-  padding-top: 3rem;
+  border-radius: 50% 50% 3px 3px / 16% 16% 0 0;
+  padding-top: 3.25rem;
+}
+.card-arch::before {
+  border-radius: 50% 50% 2px 2px / 15% 15% 0 0;
 }
 
 /* Badge / shield */
@@ -116,17 +139,24 @@ body {
 /* Mini envelope card */
 .card-mini-envelope {
   overflow: visible;
-  padding-top: 3.5rem;
+  padding-top: 4rem;
 }
 .card-mini-envelope .mini-flap {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 50px;
+  height: 54px;
   background-color: var(--olive-primary);
+  background-image: url("/paper-olive.jpg");
+  background-size: cover;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   z-index: 2;
+  box-shadow: 0 2px 6px rgba(59,48,40,0.15);
+}
+.card-mini-envelope.flap-terracotta .mini-flap {
+  background-color: var(--terracotta);
+  background-image: url("/paper-terracotta.jpg");
 }
 
 /* Oval frame (for hero) */
@@ -146,11 +176,12 @@ body {
 /* Ornate double-line frame with corner accents */
 .ornate-card {
   position: relative;
+  padding: 2.75rem 2rem !important;
 }
 .ornate-card::before {
   content: '';
   position: absolute;
-  inset: 8px;
+  inset: 9px;
   border: 1px solid var(--gold-antique);
   opacity: 0.55;
   pointer-events: none;
@@ -158,7 +189,7 @@ body {
 .ornate-card::after {
   content: '';
   position: absolute;
-  inset: 12px;
+  inset: 13px;
   border: 0.5px solid var(--olive-soft);
   opacity: 0.3;
   pointer-events: none;

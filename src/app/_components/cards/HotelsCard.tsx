@@ -1,6 +1,7 @@
 "use client";
 
 import AnimatedCard, { Stagger } from "../AnimatedCard";
+import { FloralSprig } from "../Ornaments";
 
 const hotels = [
   {
@@ -17,17 +18,23 @@ const hotels = [
 
 export default function HotelsCard() {
   return (
-    <AnimatedCard className="card-mini-envelope text-center">
+    <AnimatedCard className="card-mini-envelope flap-terracotta text-center">
       <div className="mini-flap" />
 
       <Stagger>
-        <p className="font-sans-label mb-4" style={{ color: "var(--gold-antique)" }}>
+        <p className="font-sans-label mb-2" style={{ color: "var(--terracotta)" }}>
           HOSPEDAJE
         </p>
       </Stagger>
 
       <Stagger>
-        <p className="font-serif italic text-xs mb-5" style={{ color: "var(--olive-soft)" }}>
+        <div className="flex justify-center mb-2">
+          <FloralSprig width={44} color="var(--terracotta)" leaf="var(--olive-soft)" />
+        </div>
+      </Stagger>
+
+      <Stagger>
+        <p className="font-serif italic text-xs mb-5 px-2" style={{ color: "var(--olive-soft)" }}>
           Hemos reservado tarifas especiales
           <br />para nuestros invitados
         </p>
@@ -39,7 +46,7 @@ export default function HotelsCard() {
             className={i > 0 ? "mt-5 pt-5" : ""}
             style={i > 0 ? { borderTop: "1px solid var(--beige)" } : {}}
           >
-            <p className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "1rem" }}>
+            <p className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "1.05rem" }}>
               {hotel.name}
             </p>
             <p className="font-serif text-xs mt-1" style={{ color: "var(--olive-soft)" }}>

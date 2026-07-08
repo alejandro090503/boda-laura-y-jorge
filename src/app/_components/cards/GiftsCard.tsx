@@ -1,14 +1,21 @@
 "use client";
 
 import AnimatedCard, { Stagger } from "../AnimatedCard";
+import { OliveBranch } from "../Ornaments";
 
 export default function GiftsCard() {
   return (
     <AnimatedCard className="card-olive text-center py-8">
       <Stagger>
-        <p className="font-sans-label mb-3" style={{ color: "var(--bg-cream)", opacity: 0.7 }}>
+        <p className="font-sans-label mb-2" style={{ color: "var(--bg-cream)", opacity: 0.7 }}>
           MESA DE REGALOS
         </p>
+      </Stagger>
+
+      <Stagger>
+        <div className="flex justify-center mb-2">
+          <OliveBranch width={90} color="var(--gold-antique)" />
+        </div>
       </Stagger>
 
       <Stagger>

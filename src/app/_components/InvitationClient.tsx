@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import MonogramScreen from "./MonogramScreen";
 import EnvelopeLoader from "./EnvelopeLoader";
 import AudioPlayer from "./AudioPlayer";
 import HeroCard from "./cards/HeroCard";
@@ -15,16 +14,10 @@ import GiftsCard from "./cards/GiftsCard";
 import RSVPCard from "./cards/RSVPCard";
 
 export default function InvitationClient() {
-  const [phase, setPhase] = useState<"monogram" | "envelope" | "cards">("monogram");
+  const [phase, setPhase] = useState<"envelope" | "cards">("envelope");
 
   return (
     <>
-      <AnimatePresence mode="wait">
-        {phase === "monogram" && (
-          <MonogramScreen key="mono" onTap={() => setPhase("envelope")} />
-        )}
-      </AnimatePresence>
-
       <AnimatePresence>
         {phase === "envelope" && (
           <EnvelopeLoader key="env" onOpen={() => setPhase("cards")} />
