@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import MonogramScreen from "./MonogramScreen";
 import EnvelopeLoader from "./EnvelopeLoader";
 import AudioPlayer from "./AudioPlayer";
 import HeroCard from "./cards/HeroCard";
@@ -13,13 +15,23 @@ import GiftsCard from "./cards/GiftsCard";
 import RSVPCard from "./cards/RSVPCard";
 
 export default function InvitationClient() {
-  const [opened, setOpened] = useState(false);
+  const [phase, setPhase] = useState<"monogram" | "envelope" | "cards">("monogram");
 
   return (
     <>
-      <EnvelopeLoader onOpen={() => setOpened(true)} />
+      <AnimatePresence mode="wait">
+        {phase === "monogram" && (
+          <MonogramScreen key="mono" onTap={() => setPhase("envelope")} />
+        )}
+      </AnimatePresence>
 
-      {opened && (
+      <AnimatePresence>
+        {phase === "envelope" && (
+          <EnvelopeLoader key="env" onOpen={() => setPhase("cards")} />
+        )}
+      </AnimatePresence>
+
+      {phase === "cards" && (
         <main className="flex flex-col items-center py-8 px-4 max-w-[420px] mx-auto">
           <HeroCard />
           <CeremonyCard />
@@ -30,25 +42,15 @@ export default function InvitationClient() {
           <GiftsCard />
           <RSVPCard />
 
-          {/* Footer */}
           <footer className="text-center mt-4 mb-8">
             <div className="divider" />
-            <p
-              className="font-script mt-4"
-              style={{ color: "var(--olive-soft)", fontSize: "1.2rem" }}
-            >
+            <p className="font-script mt-4" style={{ color: "var(--olive-soft)", fontSize: "1.1rem" }}>
               Laura & Jorge
             </p>
-            <p
-              className="font-sans-label mt-2"
-              style={{ color: "var(--beige)", fontSize: "0.5rem" }}
-            >
+            <p className="font-sans-label mt-2" style={{ color: "var(--beige)", fontSize: "0.45rem" }}>
               15 · AGOSTO · 2026
             </p>
-            <p
-              className="font-sans-label mt-4"
-              style={{ color: "var(--beige)", fontSize: "0.45rem" }}
-            >
+            <p className="font-sans-label mt-4" style={{ color: "var(--beige)", fontSize: "0.4rem" }}>
               DISEÑADO POR{" "}
               <a
                 href="https://instagram.com/elysium"
