@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import EnvelopeLoader from "./EnvelopeLoader";
-import AudioPlayer from "./AudioPlayer";
+import AudioPlayer, { AudioAPI } from "./AudioPlayer";
 import HeroCard from "./cards/HeroCard";
 import CeremonyCard from "./cards/CeremonyCard";
 import ReceptionCard from "./cards/ReceptionCard";
@@ -15,12 +15,20 @@ import RSVPCard from "./cards/RSVPCard";
 
 export default function InvitationClient() {
   const [phase, setPhase] = useState<"envelope" | "cards">("envelope");
+  const audioRef = useRef<AudioAPI>(null);
 
   return (
     <>
+      {/* Audio siempre montado para poder arrancar dentro del gesto de tap */}
+      <AudioPlayer ref={audioRef} />
+
       <AnimatePresence>
         {phase === "envelope" && (
-          <EnvelopeLoader key="env" onOpen={() => setPhase("cards")} />
+          <EnvelopeLoader
+            key="env"
+            onTap={() => audioRef.current?.play()}
+            onOpen={() => setPhase("cards")}
+          />
         )}
       </AnimatePresence>
 
@@ -55,8 +63,6 @@ export default function InvitationClient() {
               </a>
             </p>
           </footer>
-
-          <AudioPlayer />
         </main>
       )}
     </>

@@ -5,19 +5,21 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface Props {
   onOpen: () => void;
+  onTap?: () => void;
 }
 
-export default function EnvelopeLoader({ onOpen }: Props) {
+export default function EnvelopeLoader({ onOpen, onTap }: Props) {
   const [phase, setPhase] = useState<"sealed" | "opening" | "done">("sealed");
 
   const handleTap = useCallback(() => {
     if (phase !== "sealed") return;
+    onTap?.(); // arranca la música dentro del gesto del usuario
     setPhase("opening");
     setTimeout(() => {
       setPhase("done");
       setTimeout(onOpen, 400);
     }, 2400);
-  }, [phase, onOpen]);
+  }, [phase, onOpen, onTap]);
 
   return (
     <AnimatePresence>
