@@ -134,9 +134,6 @@ export default function ReceptionCard() {
         <p className="font-script" style={{ color: "var(--gold-antique)", fontSize: "1.1rem" }}>
           &ldquo;México Sinfónico&rdquo;
         </p>
-        <p className="font-serif italic text-xs mt-1" style={{ color: "var(--bg-cream)", opacity: 0.6 }}>
-          Concierto sinfónico de música mexicana
-        </p>
       </Stagger>
 
       <Stagger>

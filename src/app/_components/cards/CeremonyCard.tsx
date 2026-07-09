@@ -22,10 +22,10 @@ export default function CeremonyCard() {
 
       <Stagger>
         <div className="mb-6">
-          <p className="font-sans-label mb-1" style={{ color: "var(--olive-soft)", fontSize: "0.55rem" }}>
-            CEREMONIA RELIGIOSA
+          <p className="font-serif italic" style={{ color: "var(--olive-primary)", fontSize: "1.5rem" }}>
+            Santa Misa
           </p>
-          <p className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "1.7rem" }}>
+          <p className="font-serif font-semibold mt-1" style={{ color: "var(--ink-dark)", fontSize: "1.7rem" }}>
             5:00 PM
           </p>
           <a
@@ -48,15 +48,11 @@ export default function CeremonyCard() {
           className="mx-auto px-4 py-4"
           style={{ borderTop: "1px solid var(--beige)" }}
         >
-          <p className="font-sans-label mb-1" style={{ color: "var(--olive-soft)", fontSize: "0.55rem" }}>
-            CEREMONIA CIVIL
+          <p className="font-serif italic" style={{ color: "var(--olive-primary)", fontSize: "1.5rem" }}>
+            Ceremonia Civil
           </p>
-          <p className="font-serif font-semibold" style={{ color: "var(--terracotta)", fontSize: "1.7rem" }}>
+          <p className="font-serif font-semibold mt-1" style={{ color: "var(--terracotta)", fontSize: "1.7rem" }}>
             7:30 PM
-          </p>
-          <p className="font-serif italic text-xs mt-2 px-2" style={{ color: "var(--olive-soft)" }}>
-            &ldquo;Prometemos que será el único
-            <br />acto jurídico de la noche&rdquo;
           </p>
         </div>
       </Stagger>

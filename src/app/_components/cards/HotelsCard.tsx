@@ -2,7 +2,6 @@
 
 import AnimatedCard, { Stagger } from "../AnimatedCard";
 import { FloralSprig } from "../Ornaments";
-import HotelCarousel from "../HotelCarousel";
 
 const hotels = [
   {
@@ -35,16 +34,10 @@ export default function HotelsCard() {
       </Stagger>
 
       <Stagger>
-        <p className="font-serif italic text-xs mb-3 px-2" style={{ color: "var(--olive-soft)" }}>
+        <p className="font-serif italic text-xs mb-5 px-2" style={{ color: "var(--olive-soft)" }}>
           Hemos reservado tarifas especiales
           <br />para nuestros invitados
         </p>
-      </Stagger>
-
-      <Stagger>
-        <div className="mb-5">
-          <HotelCarousel />
-        </div>
       </Stagger>
 
       {hotels.map((hotel, i) => (

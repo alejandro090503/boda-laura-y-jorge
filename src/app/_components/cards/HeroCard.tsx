@@ -71,18 +71,18 @@ export default function HeroCard() {
             </Stagger>
 
             <Stagger>
-              <h1 className="font-script" style={{ color: "var(--olive-primary)", fontSize: "3rem", lineHeight: 0.95 }}>
-                Laura
+              <h1 className="font-script px-2" style={{ color: "var(--olive-primary)", fontSize: "1.75rem", lineHeight: 1.05 }}>
+                Laura Cristina Acosta Reaza
               </h1>
             </Stagger>
             <Stagger>
-              <p className="font-script" style={{ color: "var(--gold-antique)", fontSize: "1.7rem", lineHeight: 1 }}>
+              <p className="font-script my-1" style={{ color: "var(--gold-antique)", fontSize: "1.6rem", lineHeight: 1 }}>
                 &
               </p>
             </Stagger>
             <Stagger>
-              <h1 className="font-script mb-3" style={{ color: "var(--olive-primary)", fontSize: "3rem", lineHeight: 0.95 }}>
-                Jorge
+              <h1 className="font-script px-2 mb-3" style={{ color: "var(--olive-primary)", fontSize: "1.75rem", lineHeight: 1.05 }}>
+                Jorge Alberto Silva Márquez
               </h1>
             </Stagger>
 

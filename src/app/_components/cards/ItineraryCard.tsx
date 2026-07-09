@@ -19,7 +19,7 @@ const iconProps = {
 const events: Evt[] = [
   {
     time: "5:00 PM",
-    label: "Ceremonia religiosa",
+    label: "Santa Misa",
     icon: (
       <svg {...iconProps}>
         <path d="M12 3v6M9 6h6M6 21V11l6-4 6 4v10M9 21v-5h6v5" />
@@ -81,7 +81,7 @@ export default function ItineraryCard() {
     <AnimatedCard className="card-arch tex-beige">
       <Stagger>
         <p className="font-sans-label mb-2 text-center" style={{ color: "var(--gold-antique)" }}>
-          ITINERARIO
+          ASÍ CELEBRAREMOS
         </p>
       </Stagger>
 
