@@ -377,40 +377,39 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,.3);
 }
 
-/* ── Pétalos flotantes ── */
-.petals-layer {
+/* ── Partículas premium de polvo dorado (delante del contenido) ── */
+.dust-layer {
   position: fixed;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 1;
+  z-index: 45;
 }
-.petal-fall {
+.dust-mote {
   position: absolute;
-  top: -12vh;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(255,251,240,0.95), rgba(176,141,87,0.45) 55%, rgba(176,141,87,0) 75%);
+  box-shadow: 0 0 6px rgba(214,190,140,0.55), 0 0 2px rgba(255,250,235,0.8);
+  opacity: 0;
   will-change: transform, opacity;
-  animation-name: petalFall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  animation-name: dustFloat, dustTwinkle;
+  animation-timing-function: ease-in-out, ease-in-out;
+  animation-iteration-count: infinite, infinite;
 }
-.petal-sway {
-  will-change: transform;
-  animation-name: petalSway;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+@keyframes dustFloat {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(var(--dx), var(--dy)); }
+  100% { transform: translate(0, 0); }
 }
-@keyframes petalFall {
-  0% { transform: translateY(-12vh); }
-  100% { transform: translateY(114vh); }
-}
-@keyframes petalSway {
-  0% { transform: translateX(-16px) rotate(-25deg); }
-  100% { transform: translateX(16px) rotate(28deg); }
+@keyframes dustTwinkle {
+  0%, 100% { opacity: 0; }
+  30% { opacity: calc(var(--bright) * 0.7); }
+  50% { opacity: var(--bright); }
+  70% { opacity: calc(var(--bright) * 0.6); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .petals-layer { display: none; }
+  .dust-layer { display: none; }
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
