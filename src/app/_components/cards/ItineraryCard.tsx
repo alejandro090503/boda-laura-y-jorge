@@ -81,7 +81,7 @@ export default function ItineraryCard() {
         {events.map((evt, i) => {
           return (
             <Stagger key={i}>
-              <div className="flex gap-3.5 pb-20 last:pb-0">
+              <div className="flex gap-3.5 pb-28 last:pb-0">
                 {/* nodo con icono a mano alzada */}
                 <div
                   className="relative z-10 shrink-0 flex items-center justify-center rounded-full mt-0.5"
