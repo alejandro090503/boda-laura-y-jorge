@@ -28,7 +28,7 @@ export default function DressCodeCard() {
       <Stagger>
         <p
           className="font-serif font-bold"
-          style={{ color: "var(--ink-dark)", fontSize: "2rem", letterSpacing: "0.12em" }}
+          style={{ color: "var(--ink-dark)", fontSize: "3rem", letterSpacing: "0.12em" }}
         >
           FORMAL
         </p>
@@ -41,7 +41,7 @@ export default function DressCodeCard() {
       </Stagger>
 
       <Stagger>
-        <p className="font-serif italic text-xs mt-5 px-3" style={{ color: "var(--olive-primary)" }}>
+        <p className="font-serif italic text-lg mt-5 px-3" style={{ color: "var(--olive-primary)" }}>
           Con cariño, les pedimos reservar el color blanco y sus tonalidades para la novia.
         </p>
       </Stagger>

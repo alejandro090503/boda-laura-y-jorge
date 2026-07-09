@@ -35,7 +35,7 @@ export default function InvitationClient() {
       {phase === "cards" && <Petals />}
 
       {phase === "cards" && (
-        <main className="relative z-10 flex flex-col items-center py-8 px-4 max-w-[420px] mx-auto">
+        <main className="relative z-10 flex flex-col items-center py-8 px-4 max-w-[500px] mx-auto">
           <HeroCard />
           <CeremonyCard />
           <ReceptionCard />
@@ -46,13 +46,13 @@ export default function InvitationClient() {
 
           <footer className="text-center mt-4 mb-8">
             <div className="divider" />
-            <p className="font-script mt-4" style={{ color: "var(--olive-soft)", fontSize: "1.1rem" }}>
+            <p className="font-script mt-4" style={{ color: "var(--olive-soft)", fontSize: "1.7rem" }}>
               Laura & Jorge
             </p>
-            <p className="font-sans-label mt-2" style={{ color: "var(--beige)", fontSize: "0.45rem" }}>
+            <p className="font-sans-label mt-2" style={{ color: "var(--beige)", fontSize: "0.68rem" }}>
               15 · AGOSTO · 2026
             </p>
-            <p className="font-sans-label mt-4" style={{ color: "var(--beige)", fontSize: "0.4rem" }}>
+            <p className="font-sans-label mt-4" style={{ color: "var(--beige)", fontSize: "0.6rem" }}>
               DISEÑADO POR{" "}
               <a
                 href="https://instagram.com/elysium"

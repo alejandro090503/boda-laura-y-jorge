@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Pinyon_Script, Inter } from "next/font/google";
+import { Cormorant_Garamond, Great_Vibes, Inter } from "next/font/google";
 import "./globals.css";
 
 const serif = Cormorant_Garamond({
@@ -9,7 +9,7 @@ const serif = Cormorant_Garamond({
   variable: "--font-serif",
 });
 
-const script = Pinyon_Script({
+const script = Great_Vibes({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-script",

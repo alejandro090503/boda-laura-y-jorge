@@ -63,10 +63,10 @@ export default function RSVPCard() {
             </svg>
           </div>
         </motion.div>
-        <p className="font-script" style={{ color: "var(--olive-primary)", fontSize: "1.6rem" }}>
+        <p className="font-script" style={{ color: "var(--olive-primary)", fontSize: "2.4rem" }}>
           ¡Gracias!
         </p>
-        <p className="font-serif text-sm mt-2" style={{ color: "var(--ink-dark)" }}>
+        <p className="font-serif text-xl mt-2" style={{ color: "var(--ink-dark)" }}>
           {confirmado
             ? "Nos emociona que nos acompañes"
             : "Lamentamos que no puedas asistir"}
@@ -92,13 +92,13 @@ export default function RSVPCard() {
       </Stagger>
 
       <Stagger>
-        <p className="font-script mb-3" style={{ color: "var(--olive-primary)", fontSize: "2rem", lineHeight: 1 }}>
+        <p className="font-script mb-3" style={{ color: "var(--olive-primary)", fontSize: "3rem", lineHeight: 1 }}>
           Nos encantaría contar contigo
         </p>
       </Stagger>
 
       <Stagger>
-        <p className="font-serif italic text-xs mb-6" style={{ color: "var(--ink-dark)" }}>
+        <p className="font-serif italic text-lg mb-6" style={{ color: "var(--ink-dark)" }}>
           Confirma antes del 5 de agosto de 2026
         </p>
       </Stagger>
@@ -114,7 +114,7 @@ export default function RSVPCard() {
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
               required
-              className="w-full px-3 py-2 font-serif text-sm outline-none transition-colors"
+              className="w-full px-3 py-2 font-serif text-lg outline-none transition-colors"
               style={{
                 backgroundColor: "transparent",
                 borderBottom: "1px solid var(--beige)",
@@ -135,7 +135,7 @@ export default function RSVPCard() {
                   key={String(val)}
                   type="button"
                   onClick={() => setConfirmado(val)}
-                  className="px-6 py-2 font-serif text-sm transition-all"
+                  className="px-6 py-3 font-serif text-lg transition-all"
                   style={{
                     border: `1px solid ${confirmado === val ? "var(--gold-antique)" : "var(--beige)"}`,
                     backgroundColor: confirmado === val ? "var(--gold-antique)" : "transparent",
@@ -185,7 +185,7 @@ export default function RSVPCard() {
               value={mensaje}
               onChange={(e) => setMensaje(e.target.value)}
               rows={3}
-              className="w-full px-3 py-2 font-serif text-sm outline-none resize-none transition-colors"
+              className="w-full px-3 py-2 font-serif text-lg outline-none resize-none transition-colors"
               style={{
                 backgroundColor: "transparent",
                 borderBottom: "1px solid var(--beige)",
@@ -205,7 +205,7 @@ export default function RSVPCard() {
               backgroundColor: "var(--gold-antique)",
               color: "var(--bg-cream)",
               letterSpacing: "0.2em",
-              fontSize: "0.7rem",
+              fontSize: "1.05rem",
             }}
           >
             {enviando ? "Enviando..." : "Confirmar"}

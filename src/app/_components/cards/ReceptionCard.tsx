@@ -94,7 +94,7 @@ export default function ReceptionCard() {
       </Stagger>
 
       <Stagger>
-        <p className="font-script" style={{ color: "var(--bg-cream)", fontSize: "1.5rem" }}>
+        <p className="font-script" style={{ color: "var(--bg-cream)", fontSize: "2.25rem" }}>
           Hacienda Santa Cecilia
         </p>
       </Stagger>
@@ -118,18 +118,18 @@ export default function ReceptionCard() {
       <Stagger>
         <div className="flex justify-center gap-8 my-4">
           <div>
-            <p className="font-serif font-semibold" style={{ color: "var(--bg-cream)", fontSize: "1.3rem" }}>
+            <p className="font-serif font-semibold" style={{ color: "var(--bg-cream)", fontSize: "1.95rem" }}>
               8:00 PM
             </p>
-            <p className="font-sans-label" style={{ color: "var(--bg-cream)", opacity: 0.6, fontSize: "0.5rem" }}>
+            <p className="font-sans-label" style={{ color: "var(--bg-cream)", opacity: 0.6, fontSize: "0.75rem" }}>
               RECEPCIÓN
             </p>
           </div>
           <div>
-            <p className="font-serif font-semibold" style={{ color: "var(--bg-cream)", fontSize: "1.3rem" }}>
+            <p className="font-serif font-semibold" style={{ color: "var(--bg-cream)", fontSize: "1.95rem" }}>
               9:00 PM
             </p>
-            <p className="font-sans-label" style={{ color: "var(--bg-cream)", opacity: 0.6, fontSize: "0.5rem" }}>
+            <p className="font-sans-label" style={{ color: "var(--bg-cream)", opacity: 0.6, fontSize: "0.75rem" }}>
               CENA
             </p>
           </div>

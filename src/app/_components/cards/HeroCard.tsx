@@ -67,40 +67,40 @@ export default function HeroCard() {
             }}
           >
             <Stagger>
-              <p className="font-serif italic text-xs" style={{ color: "var(--ink-dark)" }}>
+              <p className="font-serif italic text-lg" style={{ color: "var(--ink-dark)" }}>
                 Con la bendición de Dios
               </p>
             </Stagger>
             <Stagger>
-              <p className="font-serif italic text-xs mb-4" style={{ color: "var(--ink-dark)" }}>
+              <p className="font-serif italic text-lg mb-4" style={{ color: "var(--ink-dark)" }}>
                 y el amor de nuestras familias
               </p>
             </Stagger>
 
             <Stagger>
-              <p className="font-serif italic text-xs mb-2" style={{ color: "var(--ink-dark)" }}>
+              <p className="font-serif italic text-lg mb-2" style={{ color: "var(--ink-dark)" }}>
                 Nosotros
               </p>
             </Stagger>
 
             <Stagger>
-              <h1 className="font-script px-2" style={{ color: "var(--olive-primary)", fontSize: "2.5rem", lineHeight: 1 }}>
+              <h1 className="font-script px-2" style={{ color: "var(--olive-primary)", fontSize: "3.6rem", lineHeight: 1 }}>
                 Laura Cristina
               </h1>
-              <p className="font-serif italic px-2" style={{ color: "var(--olive-primary)", fontSize: "0.95rem", letterSpacing: "0.05em" }}>
+              <p className="font-serif italic px-2" style={{ color: "var(--olive-primary)", fontSize: "1.4rem", letterSpacing: "0.05em" }}>
                 Acosta Reaza
               </p>
             </Stagger>
             <Stagger>
-              <p className="font-script my-1" style={{ color: "var(--gold-antique)", fontSize: "1.6rem", lineHeight: 1 }}>
+              <p className="font-script my-1" style={{ color: "var(--gold-antique)", fontSize: "2.4rem", lineHeight: 1 }}>
                 &
               </p>
             </Stagger>
             <Stagger>
-              <h1 className="font-script px-2" style={{ color: "var(--olive-primary)", fontSize: "2.5rem", lineHeight: 1 }}>
+              <h1 className="font-script px-2" style={{ color: "var(--olive-primary)", fontSize: "3.6rem", lineHeight: 1 }}>
                 Jorge Alberto
               </h1>
-              <p className="font-serif italic px-2 mb-3" style={{ color: "var(--olive-primary)", fontSize: "0.95rem", letterSpacing: "0.05em" }}>
+              <p className="font-serif italic px-2 mb-3" style={{ color: "var(--olive-primary)", fontSize: "1.4rem", letterSpacing: "0.05em" }}>
                 Silva Márquez
               </p>
             </Stagger>
@@ -120,16 +120,16 @@ export default function HeroCard() {
 
             <Stagger>
               <div className="flex items-center justify-center gap-2 mt-4">
-                <span className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "1.4rem" }}>15</span>
-                <span className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.5rem" }}>DE</span>
-                <span className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.6rem" }}>AGOSTO</span>
-                <span className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.5rem" }}>DE</span>
-                <span className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "1.4rem" }}>2026</span>
+                <span className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "2.1rem" }}>15</span>
+                <span className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.75rem" }}>DE</span>
+                <span className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.9rem" }}>AGOSTO</span>
+                <span className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.75rem" }}>DE</span>
+                <span className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "2.1rem" }}>2026</span>
               </div>
             </Stagger>
 
             <Stagger>
-              <p className="font-script mt-2" style={{ color: "var(--ink-dark)", fontSize: "1rem" }}>
+              <p className="font-script mt-2" style={{ color: "var(--ink-dark)", fontSize: "1.5rem" }}>
                 Delicias, Chihuahua
               </p>
             </Stagger>

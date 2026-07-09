@@ -15,7 +15,7 @@ export default function CeremonyCard() {
       />
 
       <Stagger>
-        <p className="font-script" style={{ color: "var(--olive-primary)", fontSize: "2.2rem", lineHeight: 1 }}>
+        <p className="font-script" style={{ color: "var(--olive-primary)", fontSize: "3.3rem", lineHeight: 1 }}>
           Ceremonia
         </p>
       </Stagger>
@@ -28,10 +28,10 @@ export default function CeremonyCard() {
 
       <Stagger>
         <div className="mb-6">
-          <p className="font-serif italic" style={{ color: "var(--olive-primary)", fontSize: "1.5rem" }}>
+          <p className="font-serif italic" style={{ color: "var(--olive-primary)", fontSize: "2.25rem" }}>
             Santa Misa
           </p>
-          <p className="font-serif font-semibold mt-1" style={{ color: "var(--ink-dark)", fontSize: "1.7rem" }}>
+          <p className="font-serif font-semibold mt-1" style={{ color: "var(--ink-dark)", fontSize: "2.55rem" }}>
             5:00 PM
           </p>
           <a
@@ -54,10 +54,10 @@ export default function CeremonyCard() {
           className="mx-auto px-4 py-4"
           style={{ borderTop: "1px solid var(--beige)" }}
         >
-          <p className="font-serif italic" style={{ color: "var(--olive-primary)", fontSize: "1.5rem" }}>
+          <p className="font-serif italic" style={{ color: "var(--olive-primary)", fontSize: "2.25rem" }}>
             Ceremonia Civil
           </p>
-          <p className="font-serif font-semibold mt-1" style={{ color: "var(--ink-dark)", fontSize: "1.7rem" }}>
+          <p className="font-serif font-semibold mt-1" style={{ color: "var(--ink-dark)", fontSize: "2.55rem" }}>
             7:30 PM
           </p>
         </div>

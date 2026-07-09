@@ -55,7 +55,7 @@ export default function ItineraryCard() {
         style={{ width: 80, height: "auto", top: -6, right: -24, opacity: 0.9, filter: "drop-shadow(0 2px 5px rgba(59,48,40,0.2))" }}
       />
       <Stagger>
-        <p className="font-script text-center" style={{ color: "var(--olive-primary)", fontSize: "2.3rem", lineHeight: 1.05 }}>
+        <p className="font-script text-center" style={{ color: "var(--olive-primary)", fontSize: "3.4rem", lineHeight: 1.05 }}>
           Así celebraremos juntos
         </p>
       </Stagger>
@@ -107,20 +107,20 @@ export default function ItineraryCard() {
                 <div className="text-left flex-1 min-w-0 pt-1">
                   <p
                     className="font-serif font-semibold leading-none"
-                    style={{ color: "var(--ink-dark)", fontSize: "1.15rem" }}
+                    style={{ color: "var(--ink-dark)", fontSize: "1.72rem" }}
                   >
                     {evt.time}
                   </p>
                   <p
                     className="font-sans-label mt-1"
-                    style={{ color: "var(--ink-dark)", fontSize: "0.5rem", letterSpacing: "0.2em" }}
+                    style={{ color: "var(--ink-dark)", fontSize: "0.75rem", letterSpacing: "0.2em" }}
                   >
                     {evt.label}
                   </p>
                   {evt.desc && (
                     <p
                       className="font-serif italic leading-snug mt-1.5 text-justify"
-                      style={{ color: "var(--ink-dark)", fontSize: "0.82rem" }}
+                      style={{ color: "var(--ink-dark)", fontSize: "1.23rem" }}
                     >
                       {evt.desc}
                     </p>
