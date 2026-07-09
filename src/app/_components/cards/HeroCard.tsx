@@ -7,32 +7,34 @@ import { Stagger } from "../AnimatedCard";
 export default function HeroCard() {
   return (
     <motion.section
-      className="relative w-[92vw] max-w-[400px] mx-auto mb-10"
+      className="relative w-[92vw] max-w-[400px] mx-auto mb-20"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
-      {/* Ramas de olivo decorativas en las esquinas */}
+      {/* Ramo floral en la esquina superior */}
       <motion.div
-        className="absolute -top-4 -left-3 z-20 pointer-events-none"
-        style={{ width: 90, transform: "rotate(-8deg)" }}
-        initial={{ opacity: 0, scale: 0.8, rotate: -20 }}
-        whileInView={{ opacity: 0.9, scale: 1, rotate: -8 }}
+        className="absolute -top-8 -left-5 z-20 pointer-events-none"
+        style={{ width: 120 }}
+        initial={{ opacity: 0, scale: 0.8, rotate: -12 }}
+        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.5, duration: 0.9, ease: "easeOut" }}
       >
-        <Image src="/assets/rama-olivo-flip.png" alt="" width={90} height={99} style={{ width: "100%", height: "auto" }} />
+        <Image src="/assets/ramo-floral.png" alt="" width={120} height={116} style={{ width: "100%", height: "auto" }} />
       </motion.div>
+
+      {/* Rama de olivo acuarela como divisor inferior */}
       <motion.div
-        className="absolute -bottom-5 -right-3 z-20 pointer-events-none"
-        style={{ width: 96, transform: "rotate(172deg)" }}
-        initial={{ opacity: 0, scale: 0.8, rotate: 190 }}
-        whileInView={{ opacity: 0.9, scale: 1, rotate: 172 }}
+        className="absolute left-1/2 -translate-x-1/2 z-20 pointer-events-none"
+        style={{ width: 170, bottom: -18 }}
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 0.95, y: 0 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.65, duration: 0.9, ease: "easeOut" }}
+        transition={{ delay: 0.7, duration: 0.9, ease: "easeOut" }}
       >
-        <Image src="/assets/rama-olivo.png" alt="" width={96} height={106} style={{ width: "100%", height: "auto" }} />
+        <Image src="/assets/olivo-acuarela.png" alt="" width={170} height={87} style={{ width: "100%", height: "auto" }} />
       </motion.div>
 
       {/* Flat-lay: envelope with botanical liner behind the card */}

@@ -20,6 +20,12 @@ export default function HotelsCard() {
   return (
     <AnimatedCard className="card-mini-envelope flap-terracotta text-center" anim="blurRise">
       <div className="mini-flap" />
+      <img
+        src="/assets/flores-secas.png"
+        alt=""
+        className="absolute pointer-events-none"
+        style={{ width: 60, height: "auto", top: 44, left: 6, opacity: 0.85 }}
+      />
 
       <Stagger>
         <p className="font-sans-label mb-2" style={{ color: "var(--terracotta)" }}>

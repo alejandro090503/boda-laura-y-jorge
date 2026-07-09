@@ -1,13 +1,23 @@
 "use client";
 
 import AnimatedCard, { Stagger } from "../AnimatedCard";
-import { Flourish, CornerSprig } from "../Ornaments";
+import { Flourish } from "../Ornaments";
 
 export default function DressCodeCard() {
   return (
     <AnimatedCard className="tex-beige text-center py-8" anim="flip">
-      <CornerSprig position="tl" color="var(--olive-soft)" />
-      <CornerSprig position="br" color="var(--olive-soft)" />
+      <img
+        src="/assets/hoja-olivo.png"
+        alt=""
+        className="absolute pointer-events-none"
+        style={{ width: 52, height: "auto", top: 8, left: 8, opacity: 0.8, transform: "scaleX(-1)" }}
+      />
+      <img
+        src="/assets/hoja-olivo.png"
+        alt=""
+        className="absolute pointer-events-none"
+        style={{ width: 52, height: "auto", bottom: 8, right: 8, opacity: 0.8, transform: "rotate(180deg)" }}
+      />
 
       <Stagger>
         <p className="font-sans-label mb-2" style={{ color: "var(--gold-antique)" }}>

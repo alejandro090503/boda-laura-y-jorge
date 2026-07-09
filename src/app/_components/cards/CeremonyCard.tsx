@@ -7,6 +7,12 @@ export default function CeremonyCard() {
   return (
     <AnimatedCard className="card-mini-envelope text-center" anim="slideLeft">
       <div className="mini-flap" />
+      <img
+        src="/assets/hoja-olivo.png"
+        alt=""
+        className="absolute pointer-events-none"
+        style={{ width: 46, height: "auto", bottom: 10, right: 10, opacity: 0.85 }}
+      />
 
       <Stagger>
         <p className="font-sans-label mb-1" style={{ color: "var(--gold-antique)" }}>

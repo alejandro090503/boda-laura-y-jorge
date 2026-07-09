@@ -48,9 +48,9 @@ export default function InvitationClient() {
 
           <footer className="text-center mt-4 mb-8">
             <img
-              src="/assets/rama-olivo.png"
+              src="/assets/olivo-acuarela.png"
               alt=""
-              style={{ width: 70, height: "auto", margin: "0 auto 0.5rem", opacity: 0.85 }}
+              style={{ width: 150, height: "auto", margin: "0 auto 0.5rem", opacity: 0.9 }}
             />
             <div className="divider" />
             <p className="font-script mt-4" style={{ color: "var(--olive-soft)", fontSize: "1.1rem" }}>

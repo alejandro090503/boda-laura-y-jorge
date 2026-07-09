@@ -84,6 +84,14 @@ export default function RSVPCard() {
       </Stagger>
 
       <Stagger>
+        <img
+          src="/assets/olivo-acuarela.png"
+          alt=""
+          style={{ width: 130, height: "auto", margin: "0.25rem auto 0.5rem", opacity: 0.9 }}
+        />
+      </Stagger>
+
+      <Stagger>
         <p className="font-serif italic text-xs mb-6" style={{ color: "var(--olive-soft)" }}>
           Fecha límite: 5 de agosto de 2026
         </p>
