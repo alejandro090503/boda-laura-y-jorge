@@ -48,6 +48,12 @@ const events: Evt[] = [
 export default function ItineraryCard() {
   return (
     <AnimatedCard className="card-arch tex-beige" anim="slideRight">
+      <img
+        src="/assets/esquina-floral.png"
+        alt=""
+        className="absolute pointer-events-none"
+        style={{ width: 80, height: "auto", top: -6, right: -6, opacity: 0.9, filter: "drop-shadow(0 2px 5px rgba(59,48,40,0.2))" }}
+      />
       <Stagger>
         <p className="font-sans-label mb-2 text-center" style={{ color: "var(--gold-antique)" }}>
           ASÍ CELEBRAREMOS JUNTOS
