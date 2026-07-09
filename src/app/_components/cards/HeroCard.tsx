@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Stagger } from "../AnimatedCard";
 
 export default function HeroCard() {
@@ -12,6 +13,28 @@ export default function HeroCard() {
       viewport={{ once: true }}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
+      {/* Ramas de olivo decorativas en las esquinas */}
+      <motion.div
+        className="absolute -top-4 -left-3 z-20 pointer-events-none"
+        style={{ width: 90, transform: "rotate(-8deg)" }}
+        initial={{ opacity: 0, scale: 0.8, rotate: -20 }}
+        whileInView={{ opacity: 0.9, scale: 1, rotate: -8 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.5, duration: 0.9, ease: "easeOut" }}
+      >
+        <Image src="/assets/rama-olivo-flip.png" alt="" width={90} height={99} style={{ width: "100%", height: "auto" }} />
+      </motion.div>
+      <motion.div
+        className="absolute -bottom-5 -right-3 z-20 pointer-events-none"
+        style={{ width: 96, transform: "rotate(172deg)" }}
+        initial={{ opacity: 0, scale: 0.8, rotate: 190 }}
+        whileInView={{ opacity: 0.9, scale: 1, rotate: 172 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.65, duration: 0.9, ease: "easeOut" }}
+      >
+        <Image src="/assets/rama-olivo.png" alt="" width={96} height={106} style={{ width: "100%", height: "auto" }} />
+      </motion.div>
+
       {/* Flat-lay: envelope with botanical liner behind the card */}
       <div className="relative pt-10 pb-6">
         {/* Envelope body (olive) */}

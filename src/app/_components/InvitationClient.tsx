@@ -47,6 +47,11 @@ export default function InvitationClient() {
           <RSVPCard />
 
           <footer className="text-center mt-4 mb-8">
+            <img
+              src="/assets/rama-olivo.png"
+              alt=""
+              style={{ width: 70, height: "auto", margin: "0 auto 0.5rem", opacity: 0.85 }}
+            />
             <div className="divider" />
             <p className="font-script mt-4" style={{ color: "var(--olive-soft)", fontSize: "1.1rem" }}>
               Laura & Jorge
