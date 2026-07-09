@@ -85,7 +85,7 @@ export default function ReceptionCard() {
         src="/assets/sello-sobre.png"
         alt=""
         className="absolute pointer-events-none"
-        style={{ width: 76, height: "auto", top: -22, left: -14, zIndex: 30, filter: "drop-shadow(0 5px 10px rgba(59,48,40,0.4))" }}
+        style={{ width: 76, height: "auto", top: -8, left: 6, zIndex: 30, filter: "drop-shadow(0 5px 10px rgba(59,48,40,0.4))" }}
       />
       <Stagger>
         <p className="font-sans-label mb-3" style={{ color: "var(--bg-cream)", opacity: 0.7 }}>
