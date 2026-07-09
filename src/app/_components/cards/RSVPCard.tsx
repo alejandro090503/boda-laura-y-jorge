@@ -76,7 +76,7 @@ export default function RSVPCard() {
   }
 
   return (
-    <AnimatedCard className="text-center" anim="unfold">
+    <AnimatedCard className="tex-fiber text-center" anim="unfold">
       <Stagger>
         <img
           src="/assets/olivo-acuarela.png"
@@ -213,13 +213,13 @@ export default function RSVPCard() {
         </form>
       </Stagger>
 
-      {/* Sello de cera real */}
+      {/* Ramo floral */}
       <Stagger>
         <div className="mt-6 flex justify-center">
           <img
-            src="/assets/sello.png"
-            alt="Sello de cera"
-            style={{ width: 64, height: "auto", filter: "drop-shadow(0 3px 6px rgba(59,48,40,0.3))" }}
+            src="/assets/ramo-otono.png"
+            alt=""
+            style={{ width: 110, height: "auto", filter: "drop-shadow(0 3px 6px rgba(59,48,40,0.25))" }}
           />
         </div>
       </Stagger>
