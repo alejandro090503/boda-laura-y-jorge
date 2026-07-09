@@ -11,7 +11,7 @@ export default function CeremonyCard() {
         src="/assets/hoja-olivo.png"
         alt=""
         className="absolute pointer-events-none"
-        style={{ width: 46, height: "auto", bottom: 10, right: 10, opacity: 0.85 }}
+        style={{ width: 90, height: "auto", bottom: 10, right: 8, opacity: 0.85 }}
       />
 
       <Stagger>

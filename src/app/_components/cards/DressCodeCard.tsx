@@ -10,13 +10,13 @@ export default function DressCodeCard() {
         src="/assets/hoja-olivo.png"
         alt=""
         className="absolute pointer-events-none"
-        style={{ width: 52, height: "auto", top: 8, left: 8, opacity: 0.8, transform: "scaleX(-1)" }}
+        style={{ width: 96, height: "auto", top: 6, left: 6, opacity: 0.8, transform: "scaleX(-1)" }}
       />
       <img
         src="/assets/hoja-olivo.png"
         alt=""
         className="absolute pointer-events-none"
-        style={{ width: 52, height: "auto", bottom: 8, right: 8, opacity: 0.8, transform: "rotate(180deg)" }}
+        style={{ width: 96, height: "auto", bottom: 6, right: 6, opacity: 0.8, transform: "rotate(180deg)" }}
       />
 
       <Stagger>

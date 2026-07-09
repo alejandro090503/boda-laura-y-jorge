@@ -24,7 +24,7 @@ export default function HotelsCard() {
         src="/assets/flores-secas.png"
         alt=""
         className="absolute pointer-events-none"
-        style={{ width: 60, height: "auto", top: 44, left: 6, opacity: 0.85 }}
+        style={{ width: 120, height: "auto", top: 40, left: -14, opacity: 0.85 }}
       />
 
       <Stagger>
