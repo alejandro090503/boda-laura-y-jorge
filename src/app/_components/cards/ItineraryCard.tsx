@@ -79,9 +79,13 @@ export default function ItineraryCard() {
         />
 
         {events.map((evt, i) => {
+          const isLast = i === events.length - 1;
           return (
             <Stagger key={i}>
-              <div className="flex gap-3.5 pb-28 last:pb-0">
+              <div
+                className="flex gap-3.5"
+                style={{ paddingBottom: isLast ? 0 : 72 }}
+              >
                 {/* nodo con icono a mano alzada */}
                 <div
                   className="relative z-10 shrink-0 flex items-center justify-center rounded-full mt-0.5"
