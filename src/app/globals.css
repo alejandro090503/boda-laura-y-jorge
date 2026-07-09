@@ -76,13 +76,23 @@ body {
     0 28px 60px rgba(59,48,40,0.12);
 }
 
+/* Marco doble elegante: línea dorada exterior + hairline olivo interior */
 .card-base::before {
   content: '';
   position: absolute;
-  inset: 10px;
+  inset: 7px;
   pointer-events: none;
-  border: 1px solid var(--beige);
+  border: 1.4px solid var(--gold-antique);
   border-radius: 2px;
+}
+.card-base::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  pointer-events: none;
+  border: 0.75px solid var(--olive-soft);
+  opacity: 0.55;
+  border-radius: 1px;
 }
 
 /* Texture variants for depth & variety */
@@ -91,7 +101,6 @@ body {
 .tex-beige {
   background-image: url("/paper-beige.jpg");
 }
-.tex-beige::before { border-color: rgba(59,48,40,0.15); }
 
 /* Terracotta card */
 .card-terracotta {
@@ -101,7 +110,12 @@ body {
   background-position: center;
   color: var(--bg-cream);
 }
-.card-terracotta::before { border-color: rgba(245,240,231,0.25); }
+.card-terracotta::before { border-color: rgba(245,240,231,0.7); }
+.card-terracotta::after { border-color: rgba(245,240,231,0.4); }
+
+/* Cards oscuras: marco claro */
+.card-olive::before { border-color: rgba(245,240,231,0.6); }
+.card-olive::after { border-color: rgba(245,240,231,0.3); }
 
 /* Arch top */
 .card-arch {
@@ -110,6 +124,9 @@ body {
 }
 .card-arch::before {
   border-radius: 50% 50% 2px 2px / 15% 15% 0 0;
+}
+.card-arch::after {
+  border-radius: 50% 50% 1px 1px / 14% 14% 0 0;
 }
 
 /* Badge / shield */

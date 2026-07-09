@@ -77,6 +77,21 @@ export default function RSVPCard() {
 
   return (
     <AnimatedCard className="tex-fiber text-center" anim="unfold">
+      <img
+        src="/assets/esquina-floral.png"
+        alt=""
+        className="absolute pointer-events-none"
+        style={{
+          width: 150,
+          height: "auto",
+          bottom: -6,
+          left: -10,
+          transform: "scaleY(-1)",
+          opacity: 0.95,
+          filter: "drop-shadow(0 3px 7px rgba(59,48,40,0.28))",
+        }}
+      />
+
       <Stagger>
         <img
           src="/assets/olivo-acuarela.png"
@@ -213,16 +228,7 @@ export default function RSVPCard() {
         </form>
       </Stagger>
 
-      {/* Ramo floral */}
-      <Stagger>
-        <div className="mt-6 flex justify-center">
-          <img
-            src="/assets/ramo-otono.png"
-            alt=""
-            style={{ width: 110, height: "auto", filter: "drop-shadow(0 3px 6px rgba(59,48,40,0.25))" }}
-          />
-        </div>
-      </Stagger>
+      <div className="mt-4" />
     </AnimatedCard>
   );
 }
