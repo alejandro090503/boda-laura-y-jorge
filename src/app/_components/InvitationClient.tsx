@@ -11,7 +11,6 @@ import ReceptionCard from "./cards/ReceptionCard";
 import ItineraryCard from "./cards/ItineraryCard";
 import DressCodeCard from "./cards/DressCodeCard";
 import HotelsCard from "./cards/HotelsCard";
-import GiftsCard from "./cards/GiftsCard";
 import RSVPCard from "./cards/RSVPCard";
 
 export default function InvitationClient() {
@@ -43,7 +42,6 @@ export default function InvitationClient() {
           <ItineraryCard />
           <DressCodeCard />
           <HotelsCard />
-          <GiftsCard />
           <RSVPCard />
 
           <footer className="text-center mt-4 mb-8">

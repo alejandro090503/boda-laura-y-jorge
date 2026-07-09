@@ -57,7 +57,7 @@ export default function CeremonyCard() {
           <p className="font-serif italic" style={{ color: "var(--olive-primary)", fontSize: "1.5rem" }}>
             Ceremonia Civil
           </p>
-          <p className="font-serif font-semibold mt-1" style={{ color: "var(--terracotta)", fontSize: "1.7rem" }}>
+          <p className="font-serif font-semibold mt-1" style={{ color: "var(--ink-dark)", fontSize: "1.7rem" }}>
             7:30 PM
           </p>
         </div>

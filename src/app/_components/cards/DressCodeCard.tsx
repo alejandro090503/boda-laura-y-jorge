@@ -41,18 +41,6 @@ export default function DressCodeCard() {
       </Stagger>
 
       <Stagger>
-        <p className="font-serif italic text-sm mt-2" style={{ color: "var(--olive-soft)" }}>
-          Hombres: traje oscuro, corbata o moño.
-        </p>
-      </Stagger>
-
-      <Stagger>
-        <p className="font-serif italic text-sm mt-2" style={{ color: "var(--olive-soft)" }}>
-          Mujeres: vestido largo o midi.
-        </p>
-      </Stagger>
-
-      <Stagger>
         <div
           className="mt-5 mx-auto px-4 py-2 inline-block"
           style={{ border: "1px solid var(--terracotta)", backgroundColor: "rgba(184,91,63,0.06)" }}

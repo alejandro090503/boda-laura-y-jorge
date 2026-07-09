@@ -66,7 +66,7 @@ export default function RSVPCard() {
         <p className="font-script" style={{ color: "var(--olive-primary)", fontSize: "1.6rem" }}>
           ¡Gracias!
         </p>
-        <p className="font-serif text-sm mt-2" style={{ color: "var(--olive-soft)" }}>
+        <p className="font-serif text-sm mt-2" style={{ color: "var(--ink-dark)" }}>
           {confirmado
             ? "Nos emociona que nos acompañes"
             : "Lamentamos que no puedas asistir"}
@@ -113,7 +113,7 @@ export default function RSVPCard() {
       </Stagger>
 
       <Stagger>
-        <p className="font-serif italic text-xs mb-6" style={{ color: "var(--olive-soft)" }}>
+        <p className="font-serif italic text-xs mb-6" style={{ color: "var(--ink-dark)" }}>
           Fecha límite: 5 de agosto de 2026
         </p>
       </Stagger>
@@ -121,7 +121,7 @@ export default function RSVPCard() {
       <Stagger>
         <form onSubmit={handleSubmit} className="text-left space-y-5">
           <div>
-            <label className="font-sans-label block mb-2" style={{ color: "var(--olive-soft)" }}>
+            <label className="font-sans-label block mb-2" style={{ color: "var(--ink-dark)" }}>
               Nombre
             </label>
             <input
@@ -141,7 +141,7 @@ export default function RSVPCard() {
           </div>
 
           <div>
-            <label className="font-sans-label block mb-3" style={{ color: "var(--olive-soft)" }}>
+            <label className="font-sans-label block mb-3" style={{ color: "var(--ink-dark)" }}>
               ¿Asistirás?
             </label>
             <div className="flex gap-3 justify-center">
@@ -165,7 +165,7 @@ export default function RSVPCard() {
 
           {confirmado && (
             <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }}>
-              <label className="font-sans-label block mb-2" style={{ color: "var(--olive-soft)" }}>
+              <label className="font-sans-label block mb-2" style={{ color: "var(--ink-dark)" }}>
                 Número de personas
               </label>
               <div className="flex items-center justify-center gap-4">
@@ -193,7 +193,7 @@ export default function RSVPCard() {
           )}
 
           <div>
-            <label className="font-sans-label block mb-2" style={{ color: "var(--olive-soft)" }}>
+            <label className="font-sans-label block mb-2" style={{ color: "var(--ink-dark)" }}>
               Mensaje para los novios
             </label>
             <textarea

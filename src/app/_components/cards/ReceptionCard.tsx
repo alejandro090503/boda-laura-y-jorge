@@ -82,10 +82,10 @@ export default function ReceptionCard() {
   return (
     <AnimatedCard className="card-olive card-arch text-center" anim="zoom">
       <img
-        src="/assets/sello.png"
+        src="/assets/sello-sobre.png"
         alt=""
         className="absolute left-1/2 pointer-events-none"
-        style={{ width: 96, height: "auto", bottom: -34, transform: "translateX(-50%)", zIndex: 30, filter: "drop-shadow(0 5px 10px rgba(59,48,40,0.4))" }}
+        style={{ width: 92, height: "auto", bottom: -32, transform: "translateX(-50%)", zIndex: 30, filter: "drop-shadow(0 5px 10px rgba(59,48,40,0.4))" }}
       />
       <Stagger>
         <p className="font-sans-label mb-3" style={{ color: "var(--bg-cream)", opacity: 0.7 }}>

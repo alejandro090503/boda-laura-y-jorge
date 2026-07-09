@@ -40,7 +40,7 @@ export default function HotelsCard() {
       </Stagger>
 
       <Stagger>
-        <p className="font-serif italic text-xs mb-5 px-2" style={{ color: "var(--olive-soft)" }}>
+        <p className="font-serif italic text-xs mb-5 px-2" style={{ color: "var(--ink-dark)" }}>
           Hemos reservado tarifas especiales
           <br />para nuestros invitados
         </p>
@@ -55,7 +55,7 @@ export default function HotelsCard() {
             <p className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "1.05rem" }}>
               {hotel.name}
             </p>
-            <p className="font-serif text-xs mt-1" style={{ color: "var(--olive-soft)" }}>
+            <p className="font-serif text-xs mt-1" style={{ color: "var(--ink-dark)" }}>
               Tel.{" "}
               <a
                 href={`tel:+52${hotel.phone.replace(/-/g, "")}`}
@@ -68,7 +68,7 @@ export default function HotelsCard() {
               className="mt-2 mx-auto px-3 py-1 inline-block"
               style={{ backgroundColor: "rgba(86,100,74,0.08)" }}
             >
-              <p className="font-sans-label" style={{ color: "var(--olive-primary)", fontSize: "0.5rem" }}>
+              <p className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.5rem" }}>
                 CÓDIGO: &ldquo;LAURA Y JORGE&rdquo;
               </p>
             </div>

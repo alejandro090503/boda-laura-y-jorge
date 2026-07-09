@@ -90,7 +90,7 @@ export default function ItineraryCard() {
                     width: 48,
                     height: 48,
                     backgroundColor: "var(--bg-cream)",
-                    border: `1px solid ${last ? "var(--terracotta)" : "var(--gold-antique)"}`,
+                    border: `1px solid var(--gold-antique)`,
                     boxShadow: "0 2px 6px rgba(59,48,40,0.1)",
                   }}
                 >
@@ -107,20 +107,20 @@ export default function ItineraryCard() {
                 <div className="text-left flex-1 min-w-0 pt-1">
                   <p
                     className="font-serif font-semibold leading-none"
-                    style={{ color: last ? "var(--terracotta)" : "var(--ink-dark)", fontSize: "1.15rem" }}
+                    style={{ color: "var(--ink-dark)", fontSize: "1.15rem" }}
                   >
                     {evt.time}
                   </p>
                   <p
                     className="font-sans-label mt-1"
-                    style={{ color: "var(--olive-primary)", fontSize: "0.5rem", letterSpacing: "0.2em" }}
+                    style={{ color: "var(--ink-dark)", fontSize: "0.5rem", letterSpacing: "0.2em" }}
                   >
                     {evt.label}
                   </p>
                   {evt.desc && (
                     <p
                       className="font-serif italic leading-snug mt-1.5"
-                      style={{ color: "var(--olive-soft)", fontSize: "0.82rem" }}
+                      style={{ color: "var(--ink-dark)", fontSize: "0.82rem" }}
                     >
                       {evt.desc}
                     </p>
