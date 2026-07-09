@@ -84,7 +84,7 @@ export default function ItineraryCard() {
             <Stagger key={i}>
               <div
                 className="flex gap-3.5"
-                style={{ paddingBottom: isLast ? 0 : 72 }}
+                style={{ paddingBottom: isLast ? 0 : 56 }}
               >
                 {/* nodo con icono a mano alzada */}
                 <div
