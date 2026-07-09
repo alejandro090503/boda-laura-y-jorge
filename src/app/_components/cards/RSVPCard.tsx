@@ -8,18 +8,27 @@ import AnimatedCard, { Stagger } from "../AnimatedCard";
 export default function RSVPCard() {
   const searchParams = useSearchParams();
   const para = searchParams.get("para") || "";
-  const pases = parseInt(searchParams.get("pases") || "2", 10);
+  const pases = Math.max(1, parseInt(searchParams.get("pases") || "2", 10));
 
-  const [nombre, setNombre] = useState(para);
-  const [asistentes, setAsistentes] = useState(pases);
   const [confirmado, setConfirmado] = useState<boolean | null>(null);
-  const [mensaje, setMensaje] = useState("");
+  const [nombres, setNombres] = useState<string[]>(() => {
+    const arr = Array(pases).fill("");
+    if (para) arr[0] = para;
+    return arr;
+  });
   const [enviando, setEnviando] = useState(false);
   const [enviado, setEnviado] = useState(false);
 
+  const setNombreAt = (i: number, v: string) =>
+    setNombres((prev) => prev.map((n, idx) => (idx === i ? v : n)));
+
+  const nombresLlenos = nombres.map((n) => n.trim()).filter(Boolean);
+  const puedeEnviar =
+    confirmado === false || (confirmado === true && nombresLlenos.length > 0);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (confirmado === null || !nombre.trim()) return;
+    if (confirmado === null || !puedeEnviar) return;
     setEnviando(true);
 
     try {
@@ -28,15 +37,13 @@ export default function RSVPCard() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           slug: "boda-laura-y-jorge",
-          nombre: nombre.trim(),
-          asistentes: confirmado ? asistentes : 0,
+          nombre: para || nombresLlenos[0] || "",
+          asistentes: confirmado ? nombresLlenos.length : 0,
           confirmado,
-          mensaje: mensaje.trim() || undefined,
+          mensaje: confirmado ? `Asisten: ${nombresLlenos.join(", ")}` : undefined,
         }),
       });
-      if (res.ok) {
-        setEnviado(true);
-      }
+      if (res.ok) setEnviado(true);
     } catch {
       // silently fail
     } finally {
@@ -97,7 +104,7 @@ export default function RSVPCard() {
         </p>
       </Stagger>
 
-      {/* Divisor con corazón (estilo jennifer) */}
+      {/* Divisor con corazón */}
       <Stagger>
         <div className="flex items-center gap-3 max-w-[280px] mx-auto mb-5">
           <span className="flex-1 h-px" style={{ background: "linear-gradient(to right, transparent, var(--gold-antique))", opacity: 0.5 }} />
@@ -108,30 +115,33 @@ export default function RSVPCard() {
         </div>
       </Stagger>
 
+      {/* Texto de pases */}
       <Stagger>
-        <form onSubmit={handleSubmit} className="text-left space-y-5 max-w-[360px] mx-auto">
-          <div>
-            <label className="font-sans-label block mb-2" style={{ color: "var(--ink-dark)", fontSize: "0.75rem" }}>
-              Nombre
-            </label>
-            <input
-              type="text"
-              value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
-              required
-              className="w-full px-4 py-3 font-serif text-lg outline-none transition-all"
-              style={{
-                backgroundColor: "rgba(245,240,231,0.6)",
-                border: "1.5px solid var(--beige)",
-                borderRadius: 12,
-                color: "var(--ink-dark)",
-              }}
-              onFocus={(e) => (e.target.style.borderColor = "var(--gold-antique)")}
-              onBlur={(e) => (e.target.style.borderColor = "var(--beige)")}
-            />
-          </div>
+        <div
+          className="max-w-[360px] mx-auto mb-5 px-5 py-3"
+          style={{ backgroundColor: "rgba(176,141,87,0.1)", border: "1px solid var(--beige)", borderRadius: 14 }}
+        >
+          <p className="font-serif" style={{ color: "var(--ink-dark)", fontSize: "1.15rem", lineHeight: 1.4 }}>
+            Tienes{" "}
+            <span className="font-semibold" style={{ color: "var(--gold-antique)" }}>
+              {pases} {pases === 1 ? "pase" : "pases"}
+            </span>
+            {para && (
+              <>
+                <br />
+                para{" "}
+                <span className="font-script" style={{ color: "var(--olive-primary)", fontSize: "1.7rem" }}>
+                  {para}
+                </span>
+              </>
+            )}
+          </p>
+        </div>
+      </Stagger>
 
-          {/* Toggle sí / no (estilo jennifer) */}
+      <Stagger>
+        <form onSubmit={handleSubmit} className="max-w-[360px] mx-auto space-y-5">
+          {/* Toggle sí / no */}
           <div className="flex gap-3">
             {[true, false].map((val) => {
               const sel = confirmado === val;
@@ -148,76 +158,43 @@ export default function RSVPCard() {
                     borderRadius: 10,
                   }}
                 >
-                  {val ? "¡Sí, asistiré!" : "No podré ir"}
+                  {val ? "¡Asistiré!" : "No podré asistir"}
                 </button>
               );
             })}
           </div>
 
-          {/* Caja de pases (estilo jennifer) */}
-          {confirmado && (
-            <motion.div
-              initial={{ opacity: 0, y: -6 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex items-center justify-between gap-4 px-5 py-3"
-              style={{
-                backgroundColor: "rgba(176,141,87,0.1)",
-                border: "1px solid var(--beige)",
-                borderRadius: 14,
-              }}
-            >
-              <span className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.72rem" }}>
-                Número de personas
-              </span>
-              <div className="flex items-center gap-4">
-                <button
-                  type="button"
-                  onClick={() => setAsistentes(Math.max(1, asistentes - 1))}
-                  className="w-9 h-9 flex items-center justify-center font-serif text-xl rounded-full"
-                  style={{ border: "1px solid var(--beige)", color: "var(--ink-dark)" }}
-                >
-                  −
-                </button>
-                <span className="font-script" style={{ color: "var(--gold-antique)", fontSize: "2.4rem", lineHeight: 1, minWidth: 28, textAlign: "center" }}>
-                  {asistentes}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setAsistentes(Math.min(pases, asistentes + 1))}
-                  className="w-9 h-9 flex items-center justify-center font-serif text-xl rounded-full"
-                  style={{ border: "1px solid var(--beige)", color: "var(--ink-dark)" }}
-                >
-                  +
-                </button>
-              </div>
+          {/* Campos de nombres (uno por pase) al confirmar asistencia */}
+          {confirmado === true && (
+            <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="space-y-3 text-left">
+              <p className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.72rem" }}>
+                {pases === 1 ? "Nombre del invitado" : "Nombre de cada invitado"}
+              </p>
+              {nombres.map((n, i) => (
+                <input
+                  key={i}
+                  type="text"
+                  value={n}
+                  onChange={(e) => setNombreAt(i, e.target.value)}
+                  placeholder={`Invitado ${i + 1}`}
+                  className="w-full px-4 py-3 font-serif text-lg outline-none transition-all"
+                  style={{
+                    backgroundColor: "rgba(245,240,231,0.6)",
+                    border: "1.5px solid var(--beige)",
+                    borderRadius: 12,
+                    color: "var(--ink-dark)",
+                  }}
+                  onFocus={(e) => (e.target.style.borderColor = "var(--gold-antique)")}
+                  onBlur={(e) => (e.target.style.borderColor = "var(--beige)")}
+                />
+              ))}
             </motion.div>
           )}
 
-          <div>
-            <label className="font-sans-label block mb-2" style={{ color: "var(--ink-dark)", fontSize: "0.75rem" }}>
-              Mensaje para los novios
-            </label>
-            <textarea
-              value={mensaje}
-              onChange={(e) => setMensaje(e.target.value)}
-              rows={3}
-              className="w-full px-4 py-3 font-serif text-lg outline-none resize-none transition-all"
-              style={{
-                backgroundColor: "rgba(245,240,231,0.6)",
-                border: "1.5px solid var(--beige)",
-                borderRadius: 12,
-                color: "var(--ink-dark)",
-              }}
-              onFocus={(e) => (e.target.style.borderColor = "var(--gold-antique)")}
-              onBlur={(e) => (e.target.style.borderColor = "var(--beige)")}
-              placeholder="Opcional"
-            />
-          </div>
-
-          {/* Botón pill (estilo jennifer) */}
+          {/* Botón pill */}
           <button
             type="submit"
-            disabled={enviando || confirmado === null || !nombre.trim()}
+            disabled={enviando || confirmado === null || !puedeEnviar}
             className="w-full py-4 font-sans-label transition-all disabled:opacity-40"
             style={{
               backgroundColor: "var(--gold-antique)",
@@ -233,7 +210,7 @@ export default function RSVPCard() {
         </form>
       </Stagger>
 
-      {/* Fecha límite con reloj (estilo jennifer) */}
+      {/* Fecha límite con reloj */}
       <Stagger>
         <div className="inline-flex items-center gap-2 mt-6 mx-auto" style={{ color: "var(--gold-antique)" }}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
