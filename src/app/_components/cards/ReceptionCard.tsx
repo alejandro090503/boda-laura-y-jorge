@@ -84,8 +84,8 @@ export default function ReceptionCard() {
       <img
         src="/assets/sello-sobre.png"
         alt=""
-        className="absolute left-1/2 pointer-events-none"
-        style={{ width: 92, height: "auto", bottom: -32, transform: "translateX(-50%)", zIndex: 30, filter: "drop-shadow(0 5px 10px rgba(59,48,40,0.4))" }}
+        className="absolute pointer-events-none"
+        style={{ width: 76, height: "auto", top: -22, left: -14, zIndex: 30, filter: "drop-shadow(0 5px 10px rgba(59,48,40,0.4))" }}
       />
       <Stagger>
         <p className="font-sans-label mb-3" style={{ color: "var(--bg-cream)", opacity: 0.7 }}>
@@ -134,12 +134,6 @@ export default function ReceptionCard() {
             </p>
           </div>
         </div>
-      </Stagger>
-
-      <Stagger>
-        <p className="font-script" style={{ color: "var(--gold-antique)", fontSize: "1.1rem" }}>
-          &ldquo;México Sinfónico&rdquo;
-        </p>
       </Stagger>
 
       <Stagger>

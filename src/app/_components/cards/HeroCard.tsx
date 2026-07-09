@@ -78,8 +78,8 @@ export default function HeroCard() {
             </Stagger>
 
             <Stagger>
-              <p className="font-sans-label mb-2" style={{ color: "var(--ink-dark)", fontSize: "0.5rem" }}>
-                NOSOTROS
+              <p className="font-serif italic text-xs mb-2" style={{ color: "var(--ink-dark)" }}>
+                Nosotros
               </p>
             </Stagger>
 
@@ -129,7 +129,7 @@ export default function HeroCard() {
             </Stagger>
 
             <Stagger>
-              <p className="font-script mt-2" style={{ color: "var(--olive-soft)", fontSize: "1rem" }}>
+              <p className="font-script mt-2" style={{ color: "var(--ink-dark)", fontSize: "1rem" }}>
                 Delicias, Chihuahua
               </p>
             </Stagger>
