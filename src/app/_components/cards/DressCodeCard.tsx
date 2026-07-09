@@ -41,14 +41,9 @@ export default function DressCodeCard() {
       </Stagger>
 
       <Stagger>
-        <div
-          className="mt-5 mx-auto px-4 py-2 inline-block"
-          style={{ border: "1px solid var(--terracotta)", backgroundColor: "rgba(184,91,63,0.06)" }}
-        >
-          <p className="font-serif italic text-xs px-1" style={{ color: "var(--terracotta)" }}>
-            Con cariño, les pedimos reservar el color blanco y sus tonalidades para la novia.
-          </p>
-        </div>
+        <p className="font-serif italic text-xs mt-5 px-3" style={{ color: "var(--olive-primary)" }}>
+          Con cariño, les pedimos reservar el color blanco y sus tonalidades para la novia.
+        </p>
       </Stagger>
     </AnimatedCard>
   );
