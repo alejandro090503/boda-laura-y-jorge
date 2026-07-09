@@ -360,7 +360,40 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,.3);
 }
 
+/* ── Pétalos flotantes ── */
+.petals-layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.petal-fall {
+  position: absolute;
+  top: -12vh;
+  will-change: transform, opacity;
+  animation-name: petalFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.petal-sway {
+  will-change: transform;
+  animation-name: petalSway;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes petalFall {
+  0% { transform: translateY(-12vh); }
+  100% { transform: translateY(114vh); }
+}
+@keyframes petalSway {
+  0% { transform: translateX(-16px) rotate(-25deg); }
+  100% { transform: translateX(16px) rotate(28deg); }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .petals-layer { display: none; }
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

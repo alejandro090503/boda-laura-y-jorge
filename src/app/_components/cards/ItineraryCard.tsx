@@ -84,7 +84,7 @@ const events: Evt[] = [
 
 export default function ItineraryCard() {
   return (
-    <AnimatedCard className="card-arch tex-beige">
+    <AnimatedCard className="card-arch tex-beige" anim="slideRight">
       <Stagger>
         <p className="font-sans-label mb-2 text-center" style={{ color: "var(--gold-antique)" }}>
           ASÍ CELEBRAREMOS JUNTOS

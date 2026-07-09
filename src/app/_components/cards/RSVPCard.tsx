@@ -76,7 +76,7 @@ export default function RSVPCard() {
   }
 
   return (
-    <AnimatedCard className="text-center">
+    <AnimatedCard className="text-center" anim="unfold">
       <Stagger>
         <p className="font-sans-label mb-2" style={{ color: "var(--gold-antique)" }}>
           CONFIRMA TU ASISTENCIA

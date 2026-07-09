@@ -80,7 +80,7 @@ function HaciendaSVG() {
 
 export default function ReceptionCard() {
   return (
-    <AnimatedCard className="card-olive card-arch text-center">
+    <AnimatedCard className="card-olive card-arch text-center" anim="zoom">
       <Stagger>
         <p className="font-sans-label mb-3" style={{ color: "var(--bg-cream)", opacity: 0.7 }}>
           CIVIL Y RECEPCIÓN

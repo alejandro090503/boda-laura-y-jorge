@@ -5,7 +5,7 @@ import { OliveBranch } from "../Ornaments";
 
 export default function GiftsCard() {
   return (
-    <AnimatedCard className="card-olive text-center py-8">
+    <AnimatedCard className="card-olive text-center py-8" anim="rotateIn">
       <Stagger>
         <p className="font-sans-label mb-2" style={{ color: "var(--bg-cream)", opacity: 0.7 }}>
           MESA DE REGALOS

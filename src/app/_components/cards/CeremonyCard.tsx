@@ -5,7 +5,7 @@ import { OliveBranch, WaxSeal } from "../Ornaments";
 
 export default function CeremonyCard() {
   return (
-    <AnimatedCard className="card-mini-envelope text-center">
+    <AnimatedCard className="card-mini-envelope text-center" anim="slideLeft">
       <div className="mini-flap" />
 
       <Stagger>

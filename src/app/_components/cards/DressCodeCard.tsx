@@ -5,7 +5,7 @@ import { Flourish, CornerSprig } from "../Ornaments";
 
 export default function DressCodeCard() {
   return (
-    <AnimatedCard className="tex-beige text-center py-8">
+    <AnimatedCard className="tex-beige text-center py-8" anim="flip">
       <CornerSprig position="tl" color="var(--olive-soft)" />
       <CornerSprig position="br" color="var(--olive-soft)" />
 

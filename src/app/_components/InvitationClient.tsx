@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import EnvelopeLoader from "./EnvelopeLoader";
 import AudioPlayer, { AudioAPI } from "./AudioPlayer";
+import Petals from "./Petals";
 import HeroCard from "./cards/HeroCard";
 import CeremonyCard from "./cards/CeremonyCard";
 import ReceptionCard from "./cards/ReceptionCard";
@@ -32,8 +33,10 @@ export default function InvitationClient() {
         )}
       </AnimatePresence>
 
+      {phase === "cards" && <Petals />}
+
       {phase === "cards" && (
-        <main className="flex flex-col items-center py-8 px-4 max-w-[420px] mx-auto">
+        <main className="relative z-10 flex flex-col items-center py-8 px-4 max-w-[420px] mx-auto">
           <HeroCard />
           <CeremonyCard />
           <ReceptionCard />

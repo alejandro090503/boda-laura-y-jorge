@@ -18,7 +18,7 @@ const hotels = [
 
 export default function HotelsCard() {
   return (
-    <AnimatedCard className="card-mini-envelope flap-terracotta text-center">
+    <AnimatedCard className="card-mini-envelope flap-terracotta text-center" anim="blurRise">
       <div className="mini-flap" />
 
       <Stagger>
