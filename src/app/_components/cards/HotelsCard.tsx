@@ -41,8 +41,8 @@ export default function HotelsCard() {
 
       <Stagger>
         <p className="font-serif italic text-xs mb-5 px-2" style={{ color: "var(--ink-dark)" }}>
-          Hemos reservado tarifas especiales
-          <br />para nuestros invitados
+          Hemos solicitado tarifas especiales
+          <br />para nuestros invitados e invitadas
         </p>
       </Stagger>
 

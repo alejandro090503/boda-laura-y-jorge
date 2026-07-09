@@ -73,7 +73,7 @@ export default function HeroCard() {
             </Stagger>
             <Stagger>
               <p className="font-serif italic text-xs mb-4" style={{ color: "var(--ink-dark)" }}>
-                y el amor de nuestros padres
+                y el amor de nuestras familias
               </p>
             </Stagger>
 

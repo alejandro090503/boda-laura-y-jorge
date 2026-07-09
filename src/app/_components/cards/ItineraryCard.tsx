@@ -52,11 +52,11 @@ export default function ItineraryCard() {
         src="/assets/esquina-floral.png"
         alt=""
         className="absolute pointer-events-none"
-        style={{ width: 80, height: "auto", top: -6, right: -6, opacity: 0.9, filter: "drop-shadow(0 2px 5px rgba(59,48,40,0.2))" }}
+        style={{ width: 80, height: "auto", top: -6, right: -24, opacity: 0.9, filter: "drop-shadow(0 2px 5px rgba(59,48,40,0.2))" }}
       />
       <Stagger>
-        <p className="font-sans-label mb-2 text-center" style={{ color: "var(--gold-antique)" }}>
-          ASÍ CELEBRAREMOS JUNTOS
+        <p className="font-script text-center" style={{ color: "var(--olive-primary)", fontSize: "2.3rem", lineHeight: 1.05 }}>
+          Así celebraremos juntos
         </p>
       </Stagger>
 
@@ -119,7 +119,7 @@ export default function ItineraryCard() {
                   </p>
                   {evt.desc && (
                     <p
-                      className="font-serif italic leading-snug mt-1.5"
+                      className="font-serif italic leading-snug mt-1.5 text-justify"
                       style={{ color: "var(--ink-dark)", fontSize: "0.82rem" }}
                     >
                       {evt.desc}

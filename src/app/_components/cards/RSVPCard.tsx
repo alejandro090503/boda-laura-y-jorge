@@ -99,7 +99,7 @@ export default function RSVPCard() {
 
       <Stagger>
         <p className="font-serif italic text-xs mb-6" style={{ color: "var(--ink-dark)" }}>
-          Fecha límite: 5 de agosto de 2026
+          Confirma antes del 5 de agosto de 2026
         </p>
       </Stagger>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import AnimatedCard, { Stagger } from "../AnimatedCard";
-import { OliveBranch, WaxSeal } from "../Ornaments";
+import { OliveBranch } from "../Ornaments";
 
 export default function CeremonyCard() {
   return (
@@ -15,8 +15,8 @@ export default function CeremonyCard() {
       />
 
       <Stagger>
-        <p className="font-sans-label mb-1" style={{ color: "var(--gold-antique)" }}>
-          CEREMONIA
+        <p className="font-script" style={{ color: "var(--olive-primary)", fontSize: "2.2rem", lineHeight: 1 }}>
+          Ceremonia
         </p>
       </Stagger>
 
@@ -60,12 +60,6 @@ export default function CeremonyCard() {
           <p className="font-serif font-semibold mt-1" style={{ color: "var(--ink-dark)", fontSize: "1.7rem" }}>
             7:30 PM
           </p>
-        </div>
-      </Stagger>
-
-      <Stagger>
-        <div className="flex justify-center mt-4">
-          <WaxSeal size={44} />
         </div>
       </Stagger>
     </AnimatedCard>
