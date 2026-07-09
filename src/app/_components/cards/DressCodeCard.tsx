@@ -45,8 +45,8 @@ export default function DressCodeCard() {
           className="mt-5 mx-auto px-4 py-2 inline-block"
           style={{ border: "1px solid var(--terracotta)", backgroundColor: "rgba(184,91,63,0.06)" }}
         >
-          <p className="font-serif italic text-xs" style={{ color: "var(--terracotta)" }}>
-            Reservado el color blanco para la novia
+          <p className="font-serif italic text-xs px-1" style={{ color: "var(--terracotta)" }}>
+            Con cariño, les pedimos reservar el color blanco y sus tonalidades para la novia.
           </p>
         </div>
       </Stagger>
