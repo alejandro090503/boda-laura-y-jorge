@@ -25,18 +25,6 @@ export default function HeroCard() {
         <Image src="/assets/ramo-floral.png" alt="" width={120} height={116} style={{ width: "100%", height: "auto" }} />
       </motion.div>
 
-      {/* Rama de olivo acuarela como divisor inferior */}
-      <motion.div
-        className="absolute left-1/2 -translate-x-1/2 z-20 pointer-events-none"
-        style={{ width: 170, bottom: -18 }}
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 0.95, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.7, duration: 0.9, ease: "easeOut" }}
-      >
-        <Image src="/assets/olivo-acuarela.png" alt="" width={170} height={87} style={{ width: "100%", height: "auto" }} />
-      </motion.div>
-
       {/* Flat-lay: envelope with botanical liner behind the card */}
       <div className="relative pt-10 pb-6">
         {/* Envelope body (olive) */}

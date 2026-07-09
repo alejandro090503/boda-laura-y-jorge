@@ -78,17 +78,23 @@ export default function RSVPCard() {
   return (
     <AnimatedCard className="text-center" anim="unfold">
       <Stagger>
-        <p className="font-sans-label mb-2" style={{ color: "var(--gold-antique)" }}>
-          CONFIRMA TU ASISTENCIA
+        <img
+          src="/assets/olivo-acuarela.png"
+          alt=""
+          style={{ width: 140, height: "auto", margin: "0.25rem auto 0.75rem", opacity: 0.9 }}
+        />
+      </Stagger>
+
+      <Stagger>
+        <p className="font-sans-label mb-1" style={{ color: "var(--gold-antique)" }}>
+          CONFIRMACIÓN
         </p>
       </Stagger>
 
       <Stagger>
-        <img
-          src="/assets/olivo-acuarela.png"
-          alt=""
-          style={{ width: 130, height: "auto", margin: "0.25rem auto 0.5rem", opacity: 0.9 }}
-        />
+        <p className="font-script mb-3" style={{ color: "var(--olive-primary)", fontSize: "2rem", lineHeight: 1 }}>
+          Nos encantaría contar contigo
+        </p>
       </Stagger>
 
       <Stagger>
@@ -207,20 +213,14 @@ export default function RSVPCard() {
         </form>
       </Stagger>
 
-      {/* Wax seal decoration at footer */}
+      {/* Sello de cera real */}
       <Stagger>
         <div className="mt-6 flex justify-center">
-          <div
-            className="w-10 h-10 rounded-full flex items-center justify-center"
-            style={{
-              background: `radial-gradient(circle at 35% 35%, #c9a366, var(--gold-antique) 60%, #8a6d3b)`,
-              opacity: 0.5,
-            }}
-          >
-            <span className="font-serif text-xs font-semibold" style={{ color: "var(--bg-cream)" }}>
-              L&J
-            </span>
-          </div>
+          <img
+            src="/assets/sello.png"
+            alt="Sello de cera"
+            style={{ width: 64, height: "auto", filter: "drop-shadow(0 3px 6px rgba(59,48,40,0.3))" }}
+          />
         </div>
       </Stagger>
     </AnimatedCard>
