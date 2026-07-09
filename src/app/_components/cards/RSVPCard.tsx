@@ -86,13 +86,13 @@ export default function RSVPCard() {
       </Stagger>
 
       <Stagger>
-        <p className="font-sans-label mb-1" style={{ color: "var(--gold-antique)" }}>
-          CONFIRMACIÓN
+        <p className="font-script" style={{ color: "var(--olive-primary)", fontSize: "3rem", lineHeight: 1 }}>
+          Confirmación
         </p>
       </Stagger>
 
       <Stagger>
-        <p className="font-script mb-3" style={{ color: "var(--olive-primary)", fontSize: "3rem", lineHeight: 1 }}>
+        <p className="font-serif italic mb-3 mt-1" style={{ color: "var(--ink-dark)", fontSize: "1.15rem" }}>
           Nos encantaría contar contigo
         </p>
       </Stagger>

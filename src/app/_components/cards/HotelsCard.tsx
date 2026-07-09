@@ -28,8 +28,8 @@ export default function HotelsCard() {
       />
 
       <Stagger>
-        <p className="font-sans-label mb-2" style={{ color: "var(--terracotta)" }}>
-          HOSPEDAJE
+        <p className="font-script mb-1" style={{ color: "var(--olive-primary)", fontSize: "3rem", lineHeight: 1 }}>
+          Hospedaje
         </p>
       </Stagger>
 

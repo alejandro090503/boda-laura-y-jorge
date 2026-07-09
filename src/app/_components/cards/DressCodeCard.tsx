@@ -20,8 +20,8 @@ export default function DressCodeCard() {
       />
 
       <Stagger>
-        <p className="font-sans-label mb-2" style={{ color: "var(--gold-antique)" }}>
-          VESTIMENTA
+        <p className="font-script mb-1" style={{ color: "var(--olive-primary)", fontSize: "3rem", lineHeight: 1 }}>
+          Vestimenta
         </p>
       </Stagger>
 
