@@ -6,16 +6,30 @@ export interface AudioAPI {
   play: () => void;
 }
 
+const START_OFFSET = 9; // la canción arranca en el segundo 9
+
 const AudioPlayer = forwardRef<AudioAPI>(function AudioPlayer(_props, ref) {
   const [playing, setPlaying] = useState(false);
   const [visible, setVisible] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  const seekStart = () => {
+    const a = audioRef.current;
+    if (a && a.currentTime < START_OFFSET) {
+      try {
+        a.currentTime = START_OFFSET;
+      } catch {
+        /* ignore */
+      }
+    }
+  };
 
   useImperativeHandle(ref, () => ({
     play: () => {
       const a = audioRef.current;
       if (!a) return;
       setVisible(true);
+      seekStart();
       a.play().catch(() => {});
     },
   }));
@@ -25,11 +39,25 @@ const AudioPlayer = forwardRef<AudioAPI>(function AudioPlayer(_props, ref) {
     if (!a) return;
     const onPlay = () => setPlaying(true);
     const onPause = () => setPlaying(false);
+    const onLoaded = () => seekStart();
+    const onEnded = () => {
+      // al terminar, reinicia en el segundo 9 (loop personalizado)
+      try {
+        a.currentTime = START_OFFSET;
+      } catch {
+        /* ignore */
+      }
+      a.play().catch(() => {});
+    };
     a.addEventListener("play", onPlay);
     a.addEventListener("pause", onPause);
+    a.addEventListener("loadedmetadata", onLoaded);
+    a.addEventListener("ended", onEnded);
     return () => {
       a.removeEventListener("play", onPlay);
       a.removeEventListener("pause", onPause);
+      a.removeEventListener("loadedmetadata", onLoaded);
+      a.removeEventListener("ended", onEnded);
     };
   }, []);
 
@@ -37,13 +65,17 @@ const AudioPlayer = forwardRef<AudioAPI>(function AudioPlayer(_props, ref) {
     const a = audioRef.current;
     if (!a) return;
     setVisible(true);
-    if (a.paused) a.play().catch(() => {});
-    else a.pause();
+    if (a.paused) {
+      seekStart();
+      a.play().catch(() => {});
+    } else {
+      a.pause();
+    }
   };
 
   return (
     <>
-      <audio ref={audioRef} src="/cancion.mp3" preload="auto" loop />
+      <audio ref={audioRef} src="/cancion.mp3" preload="auto" />
       <button
         onClick={toggle}
         aria-label={playing ? "Pausar música" : "Reproducir música"}
