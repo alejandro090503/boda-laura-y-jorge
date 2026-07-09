@@ -45,20 +45,25 @@ const events: Evt[] = [
   },
 ];
 
-export default function ItineraryCard() {
+export default function ItineraryCard({ part = 1 }: { part?: 1 | 2 }) {
+  const slice = part === 1 ? events.slice(0, 3) : events.slice(3, 6);
   return (
-    <AnimatedCard className="card-arch tex-beige" anim="slideRight">
-      <img
-        src="/assets/esquina-floral.png"
-        alt=""
-        className="absolute pointer-events-none"
-        style={{ width: 80, height: "auto", top: -6, right: -24, opacity: 0.9, filter: "drop-shadow(0 2px 5px rgba(59,48,40,0.2))" }}
-      />
-      <Stagger>
-        <p className="font-script text-center" style={{ color: "var(--olive-primary)", fontSize: "3.4rem", lineHeight: 1.05 }}>
-          Así celebraremos juntos
-        </p>
-      </Stagger>
+    <AnimatedCard className="card-arch tex-beige" anim={part === 1 ? "slideRight" : "slideLeft"}>
+      {part === 1 && (
+        <img
+          src="/assets/esquina-floral.png"
+          alt=""
+          className="absolute pointer-events-none"
+          style={{ width: 80, height: "auto", top: -6, right: -24, opacity: 0.9, filter: "drop-shadow(0 2px 5px rgba(59,48,40,0.2))" }}
+        />
+      )}
+      {part === 1 && (
+        <Stagger>
+          <p className="font-script text-center" style={{ color: "var(--olive-primary)", fontSize: "3.4rem", lineHeight: 1.05 }}>
+            Así celebraremos
+          </p>
+        </Stagger>
+      )}
 
       <Stagger>
         <div className="flex justify-center mb-6">
@@ -78,8 +83,7 @@ export default function ItineraryCard() {
           }}
         />
 
-        {events.map((evt, i) => {
-          const last = i === events.length - 1;
+        {slice.map((evt, i) => {
           return (
             <Stagger key={i}>
               <div className="flex gap-3.5 pb-6 last:pb-0">

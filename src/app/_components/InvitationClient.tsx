@@ -39,7 +39,8 @@ export default function InvitationClient() {
           <HeroCard />
           <CeremonyCard />
           <ReceptionCard />
-          <ItineraryCard />
+          <ItineraryCard part={1} />
+          <ItineraryCard part={2} />
           <DressCodeCard />
           <HotelsCard />
           <RSVPCard />
