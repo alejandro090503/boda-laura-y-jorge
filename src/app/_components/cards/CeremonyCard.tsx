@@ -13,7 +13,7 @@ export default function CeremonyCard() {
         src="/assets/flores-secas.png"
         alt=""
         className="absolute pointer-events-none"
-        style={{ width: 90, height: "auto", bottom: 10, right: 8, opacity: 0.9 }}
+        style={{ width: 74, height: "auto", bottom: 14, right: -42, opacity: 0.9 }}
       />
 
       <Stagger>
@@ -32,8 +32,8 @@ export default function CeremonyCard() {
           </p>
 
           <p
-            className="font-serif italic mt-6 mb-8 px-4 mx-auto"
-            style={{ color: "var(--olive-primary)", fontSize: "1.5rem", lineHeight: 1.35, maxWidth: "320px" }}
+            className="font-serif italic px-4 mx-auto"
+            style={{ color: "var(--olive-primary)", fontSize: "1.5rem", lineHeight: 1.35, maxWidth: "320px", marginTop: "1.5rem", marginBottom: "3rem" }}
           >
             {NOMBRE_IGLESIA}
           </p>
@@ -43,6 +43,7 @@ export default function CeremonyCard() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-map"
+            style={{ marginTop: "0.5rem" }}
           >
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
