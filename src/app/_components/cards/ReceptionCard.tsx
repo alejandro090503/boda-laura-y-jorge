@@ -119,25 +119,27 @@ export default function ReceptionCard() {
         <div className="flex justify-center gap-8 my-4">
           <div>
             <p className="font-serif font-semibold" style={{ color: "var(--bg-cream)", fontSize: "1.95rem" }}>
+              7:30 PM
+            </p>
+            <p className="font-sans-label leading-snug" style={{ color: "var(--bg-cream)", opacity: 0.6, fontSize: "0.75rem" }}>
+              CEREMONIA
+              <br />
+              CIVIL
+            </p>
+          </div>
+          <div>
+            <p className="font-serif font-semibold" style={{ color: "var(--bg-cream)", fontSize: "1.95rem" }}>
               8:00 PM
             </p>
             <p className="font-sans-label" style={{ color: "var(--bg-cream)", opacity: 0.6, fontSize: "0.75rem" }}>
               RECEPCIÓN
             </p>
           </div>
-          <div>
-            <p className="font-serif font-semibold" style={{ color: "var(--bg-cream)", fontSize: "1.95rem" }}>
-              9:00 PM
-            </p>
-            <p className="font-sans-label" style={{ color: "var(--bg-cream)", opacity: 0.6, fontSize: "0.75rem" }}>
-              CENA
-            </p>
-          </div>
         </div>
       </Stagger>
 
       <Stagger>
-        <div className="mt-4">
+        <div className="mt-8">
           <a
             href="https://maps.app.goo.gl/zzjpm96MtrKNeAAP8"
             target="_blank"
