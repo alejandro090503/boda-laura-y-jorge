@@ -78,12 +78,6 @@ export default function HeroCard() {
             </Stagger>
 
             <Stagger>
-              <p className="font-serif italic text-lg mb-2" style={{ color: "var(--ink-dark)" }}>
-                Nosotros
-              </p>
-            </Stagger>
-
-            <Stagger>
               <h1 className="font-script px-2" style={{ color: "var(--olive-primary)", fontSize: "3.6rem", lineHeight: 1 }}>
                 Laura Cristina
               </h1>
@@ -112,7 +106,7 @@ export default function HeroCard() {
             </Stagger>
 
             <Stagger>
-              <p className="font-serif italic text-xs mt-2" style={{ color: "var(--ink-dark)" }}>
+              <p className="font-serif italic text-xl mt-2" style={{ color: "var(--ink-dark)" }}>
                 Tenemos el honor de invitarles
                 <br />a nuestra boda
               </p>
@@ -130,7 +124,7 @@ export default function HeroCard() {
 
             <Stagger>
               <p className="font-script mt-2" style={{ color: "var(--ink-dark)", fontSize: "1.5rem" }}>
-                Delicias, Chihuahua
+                Delicias, Chihuahua, México
               </p>
             </Stagger>
           </div>
