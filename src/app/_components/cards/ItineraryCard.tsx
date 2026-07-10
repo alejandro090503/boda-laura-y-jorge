@@ -27,7 +27,7 @@ const events: Evt[] = [
   },
   {
     time: "9:00 p.m.",
-    label: "Cena · México Sinfónico",
+    label: "Concierto “México Sinfónico”\nCena",
     desc: "El banquete estará acompañado por un concierto sinfónico de música mexicana, esa que tanto significa para nosotros.",
     icon: "/iconos/cena.png",
   },
@@ -48,12 +48,14 @@ const events: Evt[] = [
 export default function ItineraryCard() {
   return (
     <AnimatedCard className="card-arch tex-beige" anim="slideRight">
-      <img
-        src="/assets/esquina-floral.png"
-        alt=""
-        className="absolute pointer-events-none"
-        style={{ width: 80, height: "auto", top: -6, right: -24, opacity: 0.9, filter: "drop-shadow(0 2px 5px rgba(59,48,40,0.2))" }}
-      />
+      <Stagger>
+        <img
+          src="/assets/esquina-floral.png"
+          alt=""
+          className="mx-auto pointer-events-none"
+          style={{ width: 95, height: "auto", marginBottom: "0.25rem", opacity: 0.95, filter: "drop-shadow(0 2px 5px rgba(59,48,40,0.2))" }}
+        />
+      </Stagger>
       <Stagger>
         <p className="font-script text-center" style={{ color: "var(--olive-primary)", fontSize: "3.4rem", lineHeight: 1.05 }}>
           Así celebraremos
@@ -116,7 +118,7 @@ export default function ItineraryCard() {
                   </p>
                   <p
                     className="font-sans-label mt-1"
-                    style={{ color: "var(--ink-dark)", fontSize: "0.75rem", letterSpacing: "0.2em" }}
+                    style={{ color: "var(--ink-dark)", fontSize: "0.75rem", letterSpacing: "0.2em", whiteSpace: "pre-line", lineHeight: 1.5 }}
                   >
                     {evt.label}
                   </p>

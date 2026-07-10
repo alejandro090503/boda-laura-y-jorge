@@ -7,13 +7,13 @@ const NOMBRE_IGLESIA = "Parroquia de Nuestra Señora del Rosario de Fátima";
 
 export default function CeremonyCard() {
   return (
-    <AnimatedCard className="card-mini-envelope text-center" anim="slideLeft">
+    <AnimatedCard className="card-mini-envelope flap-terracotta text-center" anim="slideLeft">
       <div className="mini-flap" />
       <img
-        src="/assets/hoja-olivo.png"
+        src="/assets/flores-secas.png"
         alt=""
         className="absolute pointer-events-none"
-        style={{ width: 90, height: "auto", bottom: 10, right: 8, opacity: 0.85 }}
+        style={{ width: 90, height: "auto", bottom: 10, right: 8, opacity: 0.9 }}
       />
 
       <Stagger>
@@ -24,7 +24,7 @@ export default function CeremonyCard() {
 
       <Stagger>
         <div className="py-4">
-          <p className="font-serif italic" style={{ color: "var(--olive-primary)", fontSize: "3.4rem", lineHeight: 1.1 }}>
+          <p className="font-serif italic font-bold" style={{ color: "var(--olive-primary)", fontSize: "3.4rem", lineHeight: 1.1 }}>
             Santa Misa
           </p>
           <p className="font-serif font-semibold mt-2" style={{ color: "var(--ink-dark)", fontSize: "2.6rem" }}>
@@ -32,7 +32,7 @@ export default function CeremonyCard() {
           </p>
 
           <p
-            className="font-serif italic mt-6 mb-4 px-4 mx-auto"
+            className="font-serif italic mt-6 mb-8 px-4 mx-auto"
             style={{ color: "var(--olive-primary)", fontSize: "1.5rem", lineHeight: 1.35, maxWidth: "320px" }}
           >
             {NOMBRE_IGLESIA}
