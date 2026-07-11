@@ -55,7 +55,7 @@ export default function InvitationClient() {
             <p className="font-sans-label mt-4" style={{ color: "var(--beige)", fontSize: "0.6rem" }}>
               DISEÑADO POR{" "}
               <a
-                href="https://instagram.com/elysium"
+                href="https://instagram.com/elysium.invitaciones"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "var(--olive-soft)", textDecoration: "none" }}
