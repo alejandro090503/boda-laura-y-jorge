@@ -24,7 +24,7 @@ export default function CeremonyCard() {
 
       <Stagger>
         <div className="py-4">
-          <p className="font-serif italic" style={{ color: "var(--olive-primary)", fontSize: "2.3rem", lineHeight: 1.15 }}>
+          <p className="font-script" style={{ color: "var(--olive-primary)", fontSize: "3.2rem", lineHeight: 1.1 }}>
             Santa Misa
           </p>
           <p className="font-serif font-semibold mt-2" style={{ color: "var(--ink-dark)", fontSize: "2.6rem" }}>

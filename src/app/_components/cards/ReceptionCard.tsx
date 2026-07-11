@@ -83,7 +83,7 @@ export default function ReceptionCard() {
         style={{ width: 76, height: "auto", top: -8, left: 6, zIndex: 30, filter: "drop-shadow(0 5px 10px rgba(59,48,40,0.4))" }}
       />
       <Stagger>
-        <p className="font-serif italic mb-1" style={{ color: "var(--bg-cream)", fontSize: "2rem", lineHeight: 1.15 }}>
+        <p className="font-script mb-1" style={{ color: "var(--bg-cream)", fontSize: "2.7rem", lineHeight: 1.1 }}>
           Civil y Recepción
         </p>
       </Stagger>
@@ -116,18 +116,16 @@ export default function ReceptionCard() {
             <p className="font-serif font-semibold" style={{ color: "var(--bg-cream)", fontSize: "1.95rem" }}>
               7:30 PM
             </p>
-            <p className="font-sans-label leading-snug" style={{ color: "var(--bg-cream)", opacity: 0.6, fontSize: "0.75rem" }}>
-              CEREMONIA
-              <br />
-              CIVIL
+            <p className="font-serif italic text-lg" style={{ color: "var(--bg-cream)", opacity: 0.85 }}>
+              Ceremonia Civil
             </p>
           </div>
           <div>
             <p className="font-serif font-semibold" style={{ color: "var(--bg-cream)", fontSize: "1.95rem" }}>
               8:00 PM
             </p>
-            <p className="font-sans-label" style={{ color: "var(--bg-cream)", opacity: 0.6, fontSize: "0.75rem" }}>
-              RECEPCIÓN
+            <p className="font-serif italic text-lg" style={{ color: "var(--bg-cream)", opacity: 0.85 }}>
+              Recepción
             </p>
           </div>
         </div>

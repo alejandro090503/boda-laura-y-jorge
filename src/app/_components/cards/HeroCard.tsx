@@ -107,10 +107,7 @@ export default function HeroCard() {
 
             <Stagger>
               <p className="font-serif italic text-xl mt-2" style={{ color: "var(--ink-dark)" }}>
-                Tenemos el honor de invitarles
-              </p>
-              <p className="font-serif italic font-bold" style={{ color: "var(--ink-dark)", fontSize: "1.55rem" }}>
-                a nuestra boda
+                Tenemos el honor de invitarles a nuestra boda
               </p>
             </Stagger>
 
