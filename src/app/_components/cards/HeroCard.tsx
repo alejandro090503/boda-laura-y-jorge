@@ -13,16 +13,16 @@ export default function HeroCard() {
       viewport={{ once: true }}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
-      {/* Motivo floral recortado del propio sobre, en la esquina superior */}
+      {/* Ramo floral en la esquina superior */}
       <motion.div
-        className="absolute -top-10 -left-8 z-20 pointer-events-none"
-        style={{ width: 150 }}
+        className="absolute -top-8 -left-5 z-20 pointer-events-none"
+        style={{ width: 120 }}
         initial={{ opacity: 0, scale: 0.8, rotate: -12 }}
         whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.5, duration: 0.9, ease: "easeOut" }}
       >
-        <Image src="/assets/sobre-motivo-grande.png" alt="" width={150} height={134} style={{ width: "100%", height: "auto" }} />
+        <Image src="/assets/ramo-floral.png" alt="" width={120} height={116} style={{ width: "100%", height: "auto" }} />
       </motion.div>
 
       {/* Flat-lay: envelope with botanical liner behind the card */}
