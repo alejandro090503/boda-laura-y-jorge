@@ -7,16 +7,16 @@ export default function DressCodeCard() {
   return (
     <AnimatedCard className="tex-beige text-center py-8" anim="flip">
       <img
-        src="/assets/hoja-olivo.png"
+        src="/assets/sobre-motivo-chico.png"
         alt=""
         className="absolute pointer-events-none"
-        style={{ width: 58, height: "auto", top: 8, left: 8, opacity: 0.8, transform: "scaleX(-1)" }}
+        style={{ width: 110, height: "auto", top: -14, left: -14, opacity: 0.9 }}
       />
       <img
-        src="/assets/hoja-olivo.png"
+        src="/assets/sobre-motivo-chico.png"
         alt=""
         className="absolute pointer-events-none"
-        style={{ width: 58, height: "auto", bottom: 8, right: 8, opacity: 0.8, transform: "rotate(180deg)" }}
+        style={{ width: 110, height: "auto", bottom: -14, right: -14, opacity: 0.9, transform: "rotate(180deg)" }}
       />
 
       <Stagger>

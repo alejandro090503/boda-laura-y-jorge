@@ -10,10 +10,10 @@ export default function CeremonyCard() {
     <AnimatedCard className="card-mini-envelope flap-terracotta text-center" anim="slideLeft">
       <div className="mini-flap" />
       <img
-        src="/assets/flores-secas.png"
+        src="/assets/sobre-motivo-chico.png"
         alt=""
         className="absolute pointer-events-none"
-        style={{ width: 100, height: "auto", bottom: 12, right: -40, opacity: 0.9 }}
+        style={{ width: 130, height: "auto", bottom: -6, right: -34, opacity: 0.95 }}
       />
 
       <Stagger>
