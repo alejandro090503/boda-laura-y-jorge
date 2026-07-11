@@ -165,24 +165,26 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 68px;
+  height: 72px;
   background-color: var(--olive-primary);
   background-image: url("/paper-olive.jpg");
   background-size: cover;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  z-index: 2;
+  /* Forma de solapa de sobre real: esquinas con un poco de altura (no llegan a punta cero)
+     para que tapen por completo el marco doble que pasa por debajo. */
+  clip-path: polygon(0 0, 100% 0, 100% 16px, 50% 100%, 0 16px);
+  z-index: 3;
   box-shadow: 0 2px 6px rgba(59,48,40,0.15);
 }
 .card-mini-envelope.flap-terracotta .mini-flap {
   background-color: var(--terracotta);
   background-image: url("/paper-terracotta.jpg");
 }
-/* El marco doble no debe asomar por las esquinas del sobre: que arranque justo debajo de la solapa */
-.card-mini-envelope::before {
-  top: 74px;
-}
+/* El marco doble se extiende normal (hasta las esquinas reales de la tarjeta);
+   la solapa (z-index superior) lo cubre donde se superponen, dando el efecto
+   de que el marco "pasa por debajo" del sobre. */
+.card-mini-envelope::before,
 .card-mini-envelope::after {
-  top: 79px;
+  z-index: 1;
 }
 
 /* Oval frame (for hero) */
