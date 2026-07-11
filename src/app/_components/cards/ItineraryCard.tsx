@@ -27,7 +27,7 @@ const events: Evt[] = [
   },
   {
     time: "9:00 p.m.",
-    label: "Concierto “México Sinfónico”\nCena",
+    label: "Concierto “México Sinfónico”\nCena",
     desc: "El banquete estará acompañado por un concierto sinfónico de música mexicana, esa que tanto significa para nosotros.",
     icon: "/iconos/cena.png",
   },
@@ -87,15 +87,15 @@ export default function ItineraryCard() {
           return (
             <Stagger key={i}>
               <div
-                className="flex gap-3.5"
+                className="flex gap-2.5"
                 style={{ paddingBottom: isLast ? 0 : 56 }}
               >
                 {/* nodo con icono a mano alzada */}
                 <div
                   className="relative z-10 shrink-0 flex items-center justify-center rounded-full mt-0.5"
                   style={{
-                    width: 48,
-                    height: 48,
+                    width: 42,
+                    height: 42,
                     backgroundColor: "var(--bg-cream)",
                     border: `1px solid var(--gold-antique)`,
                     boxShadow: "0 2px 6px rgba(59,48,40,0.1)",
@@ -104,8 +104,8 @@ export default function ItineraryCard() {
                   <Image
                     src={evt.icon}
                     alt={evt.label}
-                    width={34}
-                    height={34}
+                    width={30}
+                    height={30}
                     style={{ objectFit: "contain" }}
                   />
                 </div>
@@ -120,7 +120,7 @@ export default function ItineraryCard() {
                   </p>
                   <p
                     className="font-sans-label mt-1"
-                    style={{ color: "var(--ink-dark)", fontSize: "0.83rem", letterSpacing: "0.04em", whiteSpace: "pre-line", lineHeight: 1.5 }}
+                    style={{ color: "var(--ink-dark)", fontSize: "0.72rem", letterSpacing: "0.02em", whiteSpace: "pre-line", lineHeight: 1.5 }}
                   >
                     {evt.label}
                   </p>
