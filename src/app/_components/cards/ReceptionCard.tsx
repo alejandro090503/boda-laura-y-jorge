@@ -46,7 +46,8 @@ function HaciendaSVG() {
     <svg
       ref={svgRef}
       viewBox="0 0 400 200"
-      className="w-full max-w-[250px] mx-auto my-3"
+      className="w-full max-w-[310px] mx-auto"
+      style={{ display: "block", marginTop: "-0.5rem", marginBottom: "0.75rem" }}
       fill="none"
       stroke="var(--ink-dark)"
       strokeWidth="1.2"
@@ -83,7 +84,7 @@ export default function ReceptionCard() {
         style={{ width: 76, height: "auto", top: -8, left: 6, zIndex: 30, filter: "drop-shadow(0 5px 10px rgba(59,48,40,0.4))" }}
       />
       <Stagger>
-        <p className="font-script mb-1" style={{ color: "var(--bg-cream)", fontSize: "2.7rem", lineHeight: 1.1 }}>
+        <p className="font-script mb-1" style={{ color: "var(--bg-cream)", fontSize: "2.7rem", lineHeight: 1.1, marginTop: "1.75rem" }}>
           Civil y Recepción
         </p>
       </Stagger>
@@ -101,7 +102,7 @@ export default function ReceptionCard() {
       </Stagger>
 
       <Stagger>
-        <div style={{ filter: "invert(1)", opacity: 0.7 }}>
+        <div className="flex justify-center" style={{ filter: "invert(1)", opacity: 0.7 }}>
           <HaciendaSVG />
         </div>
       </Stagger>

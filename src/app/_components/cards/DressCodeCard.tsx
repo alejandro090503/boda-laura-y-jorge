@@ -10,13 +10,13 @@ export default function DressCodeCard() {
         src="/assets/sobre-motivo-chico.png"
         alt=""
         className="absolute pointer-events-none"
-        style={{ width: 110, height: "auto", top: -14, left: -14, opacity: 0.9 }}
+        style={{ width: 110, height: "auto", top: -14, left: -14, opacity: 0.9, zIndex: 1 }}
       />
       <img
         src="/assets/sobre-motivo-chico.png"
         alt=""
         className="absolute pointer-events-none"
-        style={{ width: 110, height: "auto", bottom: -14, right: -14, opacity: 0.9, transform: "rotate(180deg)" }}
+        style={{ width: 110, height: "auto", bottom: -14, right: -14, opacity: 0.9, transform: "rotate(180deg)", zIndex: 1 }}
       />
 
       <Stagger>
@@ -41,7 +41,10 @@ export default function DressCodeCard() {
       </Stagger>
 
       <Stagger>
-        <p className="font-serif italic text-lg mt-5 px-3" style={{ color: "var(--olive-primary)" }}>
+        <p
+          className="font-serif italic text-lg mt-5 px-3"
+          style={{ color: "var(--olive-primary)", position: "relative", zIndex: 10 }}
+        >
           Con cariño, les pedimos reservar el color blanco y sus tonalidades para la novia.
         </p>
       </Stagger>

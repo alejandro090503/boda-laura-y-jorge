@@ -212,12 +212,14 @@ export default function RSVPCard() {
 
       {/* Fecha límite con reloj */}
       <Stagger>
-        <div className="inline-flex items-center gap-2 mt-6 mx-auto" style={{ color: "var(--gold-antique)" }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <div className="flex items-center justify-center gap-2 mt-6 mx-auto text-center" style={{ color: "var(--gold-antique)" }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
             <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z" />
           </svg>
           <span className="font-serif italic" style={{ color: "var(--ink-dark)", fontSize: "1rem" }}>
-            Si te es posible, confirma antes del 5 de agosto de 2026
+            Si te es posible, confirma antes del
+            <br />
+            5 de agosto de 2026
           </span>
         </div>
       </Stagger>

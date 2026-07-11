@@ -107,12 +107,15 @@ export default function HeroCard() {
 
             <Stagger>
               <p className="font-serif italic text-xl mt-2" style={{ color: "var(--ink-dark)" }}>
-                Tenemos el honor de invitarles a nuestra boda
+                Tenemos el honor de invitarles{" "}
+                <span className="font-bold" style={{ fontSize: "1.35em" }}>
+                  a nuestra boda
+                </span>
               </p>
             </Stagger>
 
             <Stagger>
-              <div className="flex items-center justify-center gap-3 mt-4">
+              <div className="flex flex-wrap items-center justify-center gap-3 mt-4 text-center">
                 <span className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "2.1rem" }}>15</span>
                 <span className="font-serif" style={{ color: "var(--gold-antique)", fontSize: "1.3rem" }}>·</span>
                 <span className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "1.5rem", letterSpacing: "0.06em" }}>AGOSTO</span>

@@ -27,7 +27,7 @@ const events: Evt[] = [
   },
   {
     time: "9:00 p.m.",
-    label: "Concierto “México Sinfónico”\nCena",
+    label: "Concierto “México Sinfónico”\nCena",
     desc: "El banquete estará acompañado por un concierto sinfónico de música mexicana, esa que tanto significa para nosotros.",
     icon: "/iconos/cena.png",
   },

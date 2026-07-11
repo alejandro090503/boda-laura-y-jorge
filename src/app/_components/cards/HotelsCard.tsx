@@ -1,7 +1,6 @@
 "use client";
 
 import AnimatedCard, { Stagger } from "../AnimatedCard";
-import { FloralSprig } from "../Ornaments";
 
 const hotels = [
   {
@@ -20,12 +19,6 @@ export default function HotelsCard() {
   return (
     <AnimatedCard className="card-mini-envelope flap-terracotta text-center" anim="blurRise">
       <div className="mini-flap" />
-      <img
-        src="/assets/flores-secas.png"
-        alt=""
-        className="absolute pointer-events-none"
-        style={{ width: 140, height: "auto", top: 92, left: -70, opacity: 0.85 }}
-      />
 
       <Stagger>
         <p className="font-script mb-1" style={{ color: "var(--olive-primary)", fontSize: "3rem", lineHeight: 1 }}>
@@ -35,7 +28,12 @@ export default function HotelsCard() {
 
       <Stagger>
         <div className="flex justify-center mb-2">
-          <FloralSprig width={44} color="var(--terracotta)" leaf="var(--olive-soft)" />
+          <img
+            src="/assets/sobre-motivo-chico.png"
+            alt=""
+            className="pointer-events-none"
+            style={{ width: 90, height: "auto", opacity: 0.95 }}
+          />
         </div>
       </Stagger>
 

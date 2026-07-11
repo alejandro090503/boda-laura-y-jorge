@@ -39,10 +39,12 @@ export default function CeremonyCard() {
           </p>
 
           <p
-            className="font-serif italic px-6 mx-auto mb-8"
-            style={{ color: "var(--terracotta)", fontSize: "1.15rem", lineHeight: 1.5, maxWidth: "280px" }}
+            className="font-serif italic px-4 mx-auto mb-8"
+            style={{ color: "var(--terracotta)", fontSize: "1rem", lineHeight: 1.5, maxWidth: "330px" }}
           >
-            &ldquo;Todo tiene su tiempo, y todo lo que se quiere debajo del cielo tiene su hora.&rdquo;
+            &ldquo;Todo tiene su tiempo, y todo lo que se
+            <br />
+            quiere debajo del cielo tiene su hora.&rdquo;
             <br />
             <span className="font-sans-label" style={{ fontSize: "0.65rem", letterSpacing: "0.15em" }}>
               Eclesiastés 3:1
