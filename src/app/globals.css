@@ -20,10 +20,12 @@
   --color-beige: var(--beige);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 }
 
 html {
@@ -156,14 +158,14 @@ body {
 /* Mini envelope card */
 .card-mini-envelope {
   overflow: visible;
-  padding-top: 4rem;
+  padding-top: 4.25rem;
 }
 .card-mini-envelope .mini-flap {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 54px;
+  height: 68px;
   background-color: var(--olive-primary);
   background-image: url("/paper-olive.jpg");
   background-size: cover;
@@ -174,6 +176,13 @@ body {
 .card-mini-envelope.flap-terracotta .mini-flap {
   background-color: var(--terracotta);
   background-image: url("/paper-terracotta.jpg");
+}
+/* El marco doble no debe asomar por las esquinas del sobre: que arranque justo debajo de la solapa */
+.card-mini-envelope::before {
+  top: 74px;
+}
+.card-mini-envelope::after {
+  top: 79px;
 }
 
 /* Oval frame (for hero) */

@@ -35,8 +35,8 @@ export default function DressCodeCard() {
       </Stagger>
 
       <Stagger>
-        <div className="my-2">
-          <Flourish className="mx-auto" />
+        <div className="flex justify-center my-2 w-full">
+          <Flourish />
         </div>
       </Stagger>
 

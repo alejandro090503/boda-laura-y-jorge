@@ -60,11 +60,6 @@ function HaciendaSVG() {
       <path d="M130 180 V145 Q130 130 145 130 Q160 130 160 145 V180" />
       <path d="M240 180 V145 Q240 130 255 130 Q270 130 270 145 V180" />
       <path d="M280 180 V140 Q280 120 300 120 Q320 120 320 140 V180" />
-      <rect x="185" y="40" width="30" height="40" />
-      <path d="M180 40 L200 20 L220 40" />
-      <ellipse cx="200" cy="55" rx="6" ry="5" />
-      <line x1="200" y1="10" x2="200" y2="20" />
-      <line x1="195" y1="14" x2="205" y2="14" />
       <circle cx="95" cy="95" r="5" />
       <circle cx="145" cy="95" r="5" />
       <circle cx="255" cy="95" r="5" />
@@ -88,7 +83,7 @@ export default function ReceptionCard() {
         style={{ width: 76, height: "auto", top: -8, left: 6, zIndex: 30, filter: "drop-shadow(0 5px 10px rgba(59,48,40,0.4))" }}
       />
       <Stagger>
-        <p className="font-script mb-1" style={{ color: "var(--bg-cream)", fontSize: "2.6rem", lineHeight: 1.05 }}>
+        <p className="font-serif italic mb-1" style={{ color: "var(--bg-cream)", fontSize: "2rem", lineHeight: 1.15 }}>
           Civil y Recepción
         </p>
       </Stagger>

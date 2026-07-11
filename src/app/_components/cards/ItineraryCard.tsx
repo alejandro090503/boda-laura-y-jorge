@@ -49,16 +49,6 @@ export default function ItineraryCard() {
   return (
     <AnimatedCard className="card-arch tex-beige" anim="slideRight">
       <Stagger>
-        <div className="flex justify-center" style={{ marginBottom: "0.25rem" }}>
-          <img
-            src="/assets/esquina-floral.png"
-            alt=""
-            className="pointer-events-none"
-            style={{ width: 95, height: "auto", opacity: 0.95, filter: "drop-shadow(0 2px 5px rgba(59,48,40,0.2))" }}
-          />
-        </div>
-      </Stagger>
-      <Stagger>
         <p className="font-script text-center" style={{ color: "var(--olive-primary)", fontSize: "3.4rem", lineHeight: 1.05 }}>
           Así celebraremos
         </p>
@@ -120,7 +110,7 @@ export default function ItineraryCard() {
                   </p>
                   <p
                     className="font-sans-label mt-1"
-                    style={{ color: "var(--ink-dark)", fontSize: "0.66rem", letterSpacing: "0.06em", whiteSpace: "pre-line", lineHeight: 1.6 }}
+                    style={{ color: "var(--ink-dark)", fontSize: "0.83rem", letterSpacing: "0.04em", whiteSpace: "pre-line", lineHeight: 1.5 }}
                   >
                     {evt.label}
                   </p>

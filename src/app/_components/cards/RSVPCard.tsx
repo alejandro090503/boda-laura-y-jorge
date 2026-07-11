@@ -100,7 +100,7 @@ export default function RSVPCard() {
 
       <Stagger>
         <p className="font-serif italic mb-2 mt-1" style={{ color: "var(--ink-dark)", fontSize: "1.15rem" }}>
-          Nos encantaría contar contigo
+          Nos encantaría celebrar contigo
         </p>
       </Stagger>
 

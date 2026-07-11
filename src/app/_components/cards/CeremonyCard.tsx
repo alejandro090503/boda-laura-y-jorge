@@ -3,7 +3,7 @@
 import AnimatedCard, { Stagger } from "../AnimatedCard";
 import { OliveBranch } from "../Ornaments";
 
-const NOMBRE_IGLESIA = "Parroquia de Nuestra Señora del Rosario de Fátima";
+const NOMBRE_IGLESIA = "Parroquia de Nuestra Señora de Fátima";
 
 export default function CeremonyCard() {
   return (
@@ -24,7 +24,7 @@ export default function CeremonyCard() {
 
       <Stagger>
         <div className="py-4">
-          <p className="font-serif italic font-bold" style={{ color: "var(--olive-primary)", fontSize: "3.4rem", lineHeight: 1.1 }}>
+          <p className="font-serif italic" style={{ color: "var(--olive-primary)", fontSize: "2.3rem", lineHeight: 1.15 }}>
             Santa Misa
           </p>
           <p className="font-serif font-semibold mt-2" style={{ color: "var(--ink-dark)", fontSize: "2.6rem" }}>
@@ -36,6 +36,17 @@ export default function CeremonyCard() {
             style={{ color: "var(--olive-primary)", fontSize: "1.5rem", lineHeight: 1.35, maxWidth: "245px", marginTop: "1.5rem", marginBottom: "3rem", textAlign: "center" }}
           >
             {NOMBRE_IGLESIA}
+          </p>
+
+          <p
+            className="font-serif italic px-6 mx-auto mb-8"
+            style={{ color: "var(--terracotta)", fontSize: "1.15rem", lineHeight: 1.5, maxWidth: "280px" }}
+          >
+            &ldquo;Todo tiene su tiempo, y todo lo que se quiere debajo del cielo tiene su hora.&rdquo;
+            <br />
+            <span className="font-sans-label" style={{ fontSize: "0.65rem", letterSpacing: "0.15em" }}>
+              Eclesiastés 3:1
+            </span>
           </p>
 
           <a

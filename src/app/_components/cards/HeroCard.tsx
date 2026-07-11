@@ -72,7 +72,7 @@ export default function HeroCard() {
               </p>
             </Stagger>
             <Stagger>
-              <p className="font-serif italic text-lg mb-4" style={{ color: "var(--ink-dark)" }}>
+              <p className="font-serif italic text-lg mb-7" style={{ color: "var(--ink-dark)" }}>
                 y el amor de nuestras familias
               </p>
             </Stagger>
@@ -86,7 +86,7 @@ export default function HeroCard() {
               </p>
             </Stagger>
             <Stagger>
-              <p className="font-script my-1" style={{ color: "var(--gold-antique)", fontSize: "2.4rem", lineHeight: 1 }}>
+              <p className="font-script my-2" style={{ color: "var(--gold-antique)", fontSize: "3.4rem", lineHeight: 1, textShadow: "0 1px 3px rgba(176,141,87,0.25)" }}>
                 &
               </p>
             </Stagger>
@@ -108,16 +108,18 @@ export default function HeroCard() {
             <Stagger>
               <p className="font-serif italic text-xl mt-2" style={{ color: "var(--ink-dark)" }}>
                 Tenemos el honor de invitarles
-                <br />a nuestra boda
+              </p>
+              <p className="font-serif italic font-bold" style={{ color: "var(--ink-dark)", fontSize: "1.55rem" }}>
+                a nuestra boda
               </p>
             </Stagger>
 
             <Stagger>
-              <div className="flex items-center justify-center gap-2 mt-4">
+              <div className="flex items-center justify-center gap-3 mt-4">
                 <span className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "2.1rem" }}>15</span>
-                <span className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.75rem" }}>DE</span>
-                <span className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.9rem" }}>AGOSTO</span>
-                <span className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.75rem" }}>DE</span>
+                <span className="font-serif" style={{ color: "var(--gold-antique)", fontSize: "1.3rem" }}>·</span>
+                <span className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "1.5rem", letterSpacing: "0.06em" }}>AGOSTO</span>
+                <span className="font-serif" style={{ color: "var(--gold-antique)", fontSize: "1.3rem" }}>·</span>
                 <span className="font-serif font-semibold" style={{ color: "var(--ink-dark)", fontSize: "2.1rem" }}>2026</span>
               </div>
             </Stagger>
