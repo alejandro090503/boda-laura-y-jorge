@@ -18,7 +18,7 @@ export default function HeroCard() {
         className="absolute -top-10 -left-8 z-20 pointer-events-none"
         style={{ width: 150 }}
         initial={{ opacity: 0, scale: 0.8, rotate: -12 }}
-        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+        whileInView={{ opacity: 0.55, scale: 1, rotate: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.5, duration: 0.9, ease: "easeOut" }}
       >
@@ -107,9 +107,9 @@ export default function HeroCard() {
 
             <Stagger>
               <p className="font-serif italic text-xl mt-2" style={{ color: "var(--ink-dark)" }}>
-                Tenemos el honor de invitarles{" "}
+                Tenemos el honor de invitarles a{" "}
                 <span className="font-bold" style={{ fontSize: "1.35em" }}>
-                  a nuestra boda
+                  nuestra boda
                 </span>
               </p>
             </Stagger>
