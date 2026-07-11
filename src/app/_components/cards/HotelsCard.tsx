@@ -29,10 +29,10 @@ export default function HotelsCard() {
       <Stagger>
         <div className="flex justify-center mb-2">
           <img
-            src="/assets/sobre-motivo-grande.png"
+            src="/assets/sobre-motivo-chico.png"
             alt=""
             className="pointer-events-none"
-            style={{ width: 110, height: "auto", opacity: 0.95 }}
+            style={{ width: 90, height: "auto", opacity: 0.95 }}
           />
         </div>
       </Stagger>
