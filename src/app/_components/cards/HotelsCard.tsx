@@ -21,7 +21,7 @@ export default function HotelsCard() {
       <div className="mini-flap" />
 
       <Stagger>
-        <p className="font-script mb-1" style={{ color: "var(--olive-primary)", fontSize: "3rem", lineHeight: 1 }}>
+        <p className="font-script mb-1" style={{ color: "var(--olive-primary)", fontSize: "3rem", lineHeight: 1, marginTop: "1.5rem" }}>
           Hospedaje
         </p>
       </Stagger>

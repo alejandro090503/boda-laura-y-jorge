@@ -13,13 +13,18 @@ export default function RSVPCard() {
   const searchParams = useSearchParams();
   const urlPara = (searchParams.get("para") || "").trim();
   const rawP = parseInt(searchParams.get("pases") || "1", 10);
+  const rawM = parseInt(searchParams.get("menores") || "0", 10);
   const [pases, setPases] = useState<number>(
     isNaN(rawP) || rawP < 1 || rawP > 20 ? 1 : rawP
   );
+  const [menores, setMenores] = useState<number>(
+    isNaN(rawM) || rawM < 0 || rawM > 20 ? 0 : rawM
+  );
 
+  const totalCampos = pases + menores;
   const frozen = Date.now() > DEADLINE.getTime();
   const [choice, setChoice] = useState<"yes" | "no" | null>(null);
-  const [nombres, setNombres] = useState<string[]>(() => Array(pases).fill(""));
+  const [nombres, setNombres] = useState<string[]>(() => Array(totalCampos).fill(""));
   const [enviando, setEnviando] = useState(false);
   const [gateLoading, setGateLoading] = useState(!!urlPara);
   const [feedback, setFeedback] = useState("");
@@ -28,13 +33,13 @@ export default function RSVPCard() {
 
   useEffect(() => {
     setNombres((prev) => {
-      const next = Array(pases).fill("");
+      const next = Array(totalCampos).fill("");
       prev.forEach((v, i) => {
-        if (i < pases) next[i] = v;
+        if (i < totalCampos) next[i] = v;
       });
       return next;
     });
-  }, [pases]);
+  }, [totalCampos]);
 
   useEffect(() => {
     if (!urlPara) return;
@@ -46,6 +51,9 @@ export default function RSVPCard() {
         const d = resp.invitado;
         if (d && typeof d.pases === "number" && d.pases > 0 && d.pases <= 20) {
           setPases(d.pases);
+        }
+        if (d && typeof d.pases_menores === "number" && d.pases_menores >= 0 && d.pases_menores <= 20) {
+          setMenores(d.pases_menores);
         }
         if (d && (d.estado === "confirmado" || d.estado === "declino")) {
           const c = d.estado === "confirmado" ? "yes" : "no";
@@ -174,6 +182,14 @@ export default function RSVPCard() {
             <span className="font-semibold" style={{ color: "var(--gold-antique)" }}>
               {pases} {pases === 1 ? "pase" : "pases"}
             </span>
+            {menores > 0 && (
+              <>
+                {" "}y{" "}
+                <span className="font-semibold" style={{ color: "var(--gold-antique)" }}>
+                  {menores} {menores === 1 ? "menor" : "menores"}
+                </span>
+              </>
+            )}
             {urlPara && (
               <>
                 <br />
@@ -218,30 +234,68 @@ export default function RSVPCard() {
           </div>
 
           {choice === "yes" && (
-            <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="space-y-3 text-left">
-              <p className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.72rem" }}>
-                {pases === 1 ? "Nombre del invitado" : "Nombre de cada invitado"}
-              </p>
-              {nombres.map((n, i) => (
-                <input
-                  key={i}
-                  type="text"
-                  value={n}
-                  onChange={(e) => setNombreAt(i, e.target.value)}
-                  placeholder={pases === 1 ? "Tu nombre completo" : `Invitado ${i + 1}`}
-                  autoComplete="off"
-                  maxLength={60}
-                  className="w-full px-4 py-3 font-serif text-lg outline-none transition-all"
-                  style={{
-                    backgroundColor: "rgba(245,240,231,0.6)",
-                    border: "1.5px solid var(--beige)",
-                    borderRadius: 12,
-                    color: "var(--ink-dark)",
-                  }}
-                  onFocus={(e) => (e.target.style.borderColor = "var(--gold-antique)")}
-                  onBlur={(e) => (e.target.style.borderColor = "var(--beige)")}
-                />
-              ))}
+            <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="space-y-4 text-left">
+              {pases > 0 && (
+                <div className="space-y-2">
+                  <p className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.72rem" }}>
+                    {menores > 0 ? "Nombre del adulto" : (pases === 1 ? "Nombre del invitado" : "Nombre de cada invitado")}
+                  </p>
+                  {Array.from({ length: pases }).map((_, i) => {
+                    const idx = i;
+                    return (
+                      <input
+                        key={`a-${idx}`}
+                        type="text"
+                        value={nombres[idx] || ""}
+                        onChange={(e) => setNombreAt(idx, e.target.value)}
+                        placeholder={menores > 0 ? "Nombre del adulto" : (pases === 1 ? "Tu nombre completo" : `Invitado ${i + 1}`)}
+                        autoComplete="off"
+                        maxLength={60}
+                        className="w-full px-4 py-3 font-serif text-lg outline-none transition-all"
+                        style={{
+                          backgroundColor: "rgba(245,240,231,0.6)",
+                          border: "1.5px solid var(--beige)",
+                          borderRadius: 12,
+                          color: "var(--ink-dark)",
+                        }}
+                        onFocus={(e) => (e.target.style.borderColor = "var(--gold-antique)")}
+                        onBlur={(e) => (e.target.style.borderColor = "var(--beige)")}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+
+              {menores > 0 && (
+                <div className="space-y-2">
+                  <p className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.72rem" }}>
+                    Nombre del Niño
+                  </p>
+                  {Array.from({ length: menores }).map((_, i) => {
+                    const idx = pases + i;
+                    return (
+                      <input
+                        key={`m-${idx}`}
+                        type="text"
+                        value={nombres[idx] || ""}
+                        onChange={(e) => setNombreAt(idx, e.target.value)}
+                        placeholder="Nombre del Niño"
+                        autoComplete="off"
+                        maxLength={60}
+                        className="w-full px-4 py-3 font-serif text-lg outline-none transition-all"
+                        style={{
+                          backgroundColor: "rgba(245,240,231,0.6)",
+                          border: "1.5px solid var(--beige)",
+                          borderRadius: 12,
+                          color: "var(--ink-dark)",
+                        }}
+                        onFocus={(e) => (e.target.style.borderColor = "var(--gold-antique)")}
+                        onBlur={(e) => (e.target.style.borderColor = "var(--beige)")}
+                      />
+                    );
+                  })}
+                </div>
+              )}
             </motion.div>
           )}
 
