@@ -31,8 +31,8 @@ export default function CountdownCard() {
       </Stagger>
 
       <Stagger>
-        <p className="font-sans-label" style={{ color: "var(--gold-antique)" }}>
-          CUENTA REGRESIVA
+        <p className="font-script" style={{ color: "var(--olive-primary)", fontSize: "3.2rem", lineHeight: 1.1 }}>
+          Faltan
         </p>
       </Stagger>
 

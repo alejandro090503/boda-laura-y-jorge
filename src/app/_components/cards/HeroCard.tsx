@@ -7,7 +7,7 @@ import { Stagger } from "../AnimatedCard";
 export default function HeroCard() {
   return (
     <motion.section
-      className="relative w-[92vw] max-w-[400px] mx-auto mb-28"
+      className="relative w-[92vw] max-w-[400px] mx-auto mb-10"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
