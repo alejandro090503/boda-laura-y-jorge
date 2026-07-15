@@ -6,6 +6,7 @@ import EnvelopeLoader from "./EnvelopeLoader";
 import AudioPlayer, { AudioAPI } from "./AudioPlayer";
 import Petals from "./Petals";
 import HeroCard from "./cards/HeroCard";
+import CountdownCard from "./cards/CountdownCard";
 import CeremonyCard from "./cards/CeremonyCard";
 import ReceptionCard from "./cards/ReceptionCard";
 import ItineraryCard from "./cards/ItineraryCard";
@@ -37,6 +38,7 @@ export default function InvitationClient() {
       {phase === "cards" && (
         <main className="relative z-10 flex flex-col items-center py-8 px-4 max-w-[500px] mx-auto">
           <HeroCard />
+          <CountdownCard />
           <CeremonyCard />
           <ReceptionCard />
           <ItineraryCard />

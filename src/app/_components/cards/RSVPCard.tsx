@@ -1,86 +1,136 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import AnimatedCard, { Stagger } from "../AnimatedCard";
 
+const PANEL_API = "https://panel-invitados.vercel.app/api/confirmar";
+const RSVP_URL = "https://boda-laura-y-jorge.vercel.app";
+const DEADLINE = new Date(2026, 7, 5, 23, 59, 59, 999); // 5 ago 2026
+
 export default function RSVPCard() {
   const searchParams = useSearchParams();
-  const para = searchParams.get("para") || "";
-  const pases = Math.max(1, parseInt(searchParams.get("pases") || "2", 10));
+  const urlPara = (searchParams.get("para") || "").trim();
+  const rawP = parseInt(searchParams.get("pases") || "1", 10);
+  const [pases, setPases] = useState<number>(
+    isNaN(rawP) || rawP < 1 || rawP > 20 ? 1 : rawP
+  );
 
-  const [confirmado, setConfirmado] = useState<boolean | null>(null);
-  const [nombres, setNombres] = useState<string[]>(() => {
-    const arr = Array(pases).fill("");
-    if (para) arr[0] = para;
-    return arr;
-  });
+  const frozen = Date.now() > DEADLINE.getTime();
+  const [choice, setChoice] = useState<"yes" | "no" | null>(null);
+  const [nombres, setNombres] = useState<string[]>(() => Array(pases).fill(""));
   const [enviando, setEnviando] = useState(false);
-  const [enviado, setEnviado] = useState(false);
+  const [gateLoading, setGateLoading] = useState(!!urlPara);
+  const [feedback, setFeedback] = useState("");
+  const [feedbackKind, setFeedbackKind] = useState<"info" | "success" | "warn" | "error">("info");
+  const [btnLabel, setBtnLabel] = useState(frozen ? "Fecha límite alcanzada" : "Confirmar");
+
+  useEffect(() => {
+    setNombres((prev) => {
+      const next = Array(pases).fill("");
+      prev.forEach((v, i) => {
+        if (i < pases) next[i] = v;
+      });
+      return next;
+    });
+  }, [pases]);
+
+  useEffect(() => {
+    if (!urlPara) return;
+    fetch(
+      `${PANEL_API}?nombre=${encodeURIComponent(urlPara)}&url_boda=${encodeURIComponent(RSVP_URL)}`
+    )
+      .then((r) => r.json())
+      .then((resp) => {
+        const d = resp.invitado;
+        if (d && typeof d.pases === "number" && d.pases > 0 && d.pases <= 20) {
+          setPases(d.pases);
+        }
+        if (d && (d.estado === "confirmado" || d.estado === "declino")) {
+          const c = d.estado === "confirmado" ? "yes" : "no";
+          if (d.nombres_confirmados?.length) {
+            setNombres((prev) => {
+              const size = Math.max(prev.length, d.nombres_confirmados.length);
+              const arr = Array(size).fill("");
+              d.nombres_confirmados.forEach((n: string, i: number) => {
+                arr[i] = n;
+              });
+              return arr;
+            });
+          }
+          setChoice(c);
+          setBtnLabel("Actualizar respuesta");
+          setFeedbackKind("info");
+          setFeedback(
+            c === "yes"
+              ? "¡Ya tienes confirmada tu asistencia! Puedes actualizar tu respuesta."
+              : "Ya tienes registrado que no podrás asistir. Puedes cambiar tu respuesta."
+          );
+        }
+      })
+      .catch(() => {})
+      .finally(() => setGateLoading(false));
+  }, [urlPara]);
 
   const setNombreAt = (i: number, v: string) =>
     setNombres((prev) => prev.map((n, idx) => (idx === i ? v : n)));
 
-  const nombresLlenos = nombres.map((n) => n.trim()).filter(Boolean);
-  const puedeEnviar =
-    confirmado === false || (confirmado === true && nombresLlenos.length > 0);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (confirmado === null || !puedeEnviar) return;
+    if (frozen || enviando) return;
+    if (!choice) {
+      setFeedbackKind("warn");
+      setFeedback("Por favor selecciona si asistirás o no.");
+      return;
+    }
+    const nombresFilled = choice === "yes" ? nombres.map((n) => n.trim()).filter(Boolean) : [];
+    if (choice === "yes" && nombresFilled.length === 0) {
+      setFeedbackKind("warn");
+      setFeedback("Por favor escribe al menos un nombre.");
+      return;
+    }
     setEnviando(true);
-
+    setBtnLabel("Enviando…");
+    setFeedback("");
     try {
-      const res = await fetch("https://panel-invitados.vercel.app/api/confirmar", {
+      await fetch(PANEL_API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          slug: "boda-laura-y-jorge",
-          nombre: para || nombresLlenos[0] || "",
-          asistentes: confirmado ? nombresLlenos.length : 0,
-          confirmado,
-          mensaje: confirmado ? `Asisten: ${nombresLlenos.join(", ")}` : undefined,
+          nombre: urlPara || nombresFilled[0] || "Invitado",
+          url_boda: RSVP_URL,
+          estado: choice === "yes" ? "confirmado" : "declino",
+          pases_confirmados: choice === "yes" ? nombresFilled.length : 0,
+          nombres_confirmados: choice === "yes" ? nombresFilled : [],
         }),
       });
-      if (res.ok) setEnviado(true);
+      setBtnLabel("Actualizar respuesta");
+      setFeedbackKind(choice === "yes" ? "success" : "info");
+      setFeedback(
+        choice === "yes"
+          ? "¡Tu asistencia ha sido confirmada! Nos vemos pronto."
+          : "Hemos registrado que no podrás asistir. ¡Gracias por avisarnos!"
+      );
     } catch {
-      // silently fail
+      setFeedbackKind("error");
+      setFeedback("Error de conexión. Intenta de nuevo.");
+      setBtnLabel("Confirmar");
     } finally {
       setEnviando(false);
     }
   };
 
-  if (enviado) {
-    return (
-      <AnimatedCard className="text-center py-10">
-        <motion.div
-          initial={{ scale: 0, rotate: -20 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ type: "spring", stiffness: 200, damping: 15 }}
-        >
-          <div
-            className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"
-            style={{
-              background: `radial-gradient(circle at 35% 35%, #c9a366, var(--gold-antique) 60%, #8a6d3b)`,
-            }}
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--bg-cream)" strokeWidth="2.5">
-              <path d="M5 12l5 5L20 7" />
-            </svg>
-          </div>
-        </motion.div>
-        <p className="font-script" style={{ color: "var(--olive-primary)", fontSize: "2.4rem" }}>
-          ¡Gracias!
-        </p>
-        <p className="font-serif text-xl mt-2" style={{ color: "var(--ink-dark)" }}>
-          {confirmado
-            ? "Nos emociona que nos acompañes"
-            : "Lamentamos que no puedas asistir"}
-        </p>
-      </AnimatedCard>
-    );
-  }
+  const feedbackColor =
+    feedbackKind === "success"
+      ? "var(--olive-primary)"
+      : feedbackKind === "warn"
+        ? "var(--terracotta)"
+        : feedbackKind === "error"
+          ? "#B85042"
+          : "var(--gold-antique)";
+
+  const togglesDisabled = frozen || gateLoading;
 
   return (
     <AnimatedCard className="tex-fiber text-center" anim="unfold">
@@ -104,7 +154,6 @@ export default function RSVPCard() {
         </p>
       </Stagger>
 
-      {/* Divisor con corazón */}
       <Stagger>
         <div className="flex items-center gap-3 max-w-[280px] mx-auto mb-5">
           <span className="flex-1 h-px" style={{ background: "linear-gradient(to right, transparent, var(--gold-antique))", opacity: 0.5 }} />
@@ -115,7 +164,6 @@ export default function RSVPCard() {
         </div>
       </Stagger>
 
-      {/* Texto de pases */}
       <Stagger>
         <div
           className="max-w-[360px] mx-auto mb-5 px-5 py-3"
@@ -126,12 +174,12 @@ export default function RSVPCard() {
             <span className="font-semibold" style={{ color: "var(--gold-antique)" }}>
               {pases} {pases === 1 ? "pase" : "pases"}
             </span>
-            {para && (
+            {urlPara && (
               <>
                 <br />
                 para{" "}
                 <span className="font-script" style={{ color: "var(--olive-primary)", fontSize: "1.7rem" }}>
-                  {para}
+                  {urlPara}
                 </span>
               </>
             )}
@@ -141,31 +189,35 @@ export default function RSVPCard() {
 
       <Stagger>
         <form onSubmit={handleSubmit} className="max-w-[360px] mx-auto space-y-5">
-          {/* Toggle sí / no */}
           <div className="flex gap-3">
-            {[true, false].map((val) => {
-              const sel = confirmado === val;
+            {(["yes", "no"] as const).map((val) => {
+              const sel = choice === val;
+              const isYes = val === "yes";
               return (
                 <button
-                  key={String(val)}
+                  key={val}
                   type="button"
-                  onClick={() => setConfirmado(val)}
-                  className="flex-1 py-3 font-serif italic text-lg transition-all"
+                  onClick={() => setChoice(val)}
+                  disabled={togglesDisabled}
+                  className="flex-1 py-3 font-serif italic text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{
-                    border: `1.5px solid ${sel ? (val ? "var(--olive-primary)" : "var(--terracotta)") : "var(--beige)"}`,
-                    backgroundColor: sel ? (val ? "rgba(86,100,74,0.14)" : "rgba(184,91,63,0.1)") : "rgba(245,240,231,0.5)",
-                    color: sel ? (val ? "var(--olive-primary)" : "var(--terracotta)") : "var(--ink-dark)",
+                    border: `1.5px solid ${sel ? (isYes ? "var(--olive-primary)" : "var(--terracotta)") : "var(--beige)"}`,
+                    backgroundColor: sel
+                      ? isYes
+                        ? "rgba(86,100,74,0.14)"
+                        : "rgba(184,91,63,0.1)"
+                      : "rgba(245,240,231,0.5)",
+                    color: sel ? (isYes ? "var(--olive-primary)" : "var(--terracotta)") : "var(--ink-dark)",
                     borderRadius: 10,
                   }}
                 >
-                  {val ? "¡Asistiré!" : "No podré asistir"}
+                  {isYes ? "¡Asistiré!" : "No podré asistir"}
                 </button>
               );
             })}
           </div>
 
-          {/* Campos de nombres (uno por pase) al confirmar asistencia */}
-          {confirmado === true && (
+          {choice === "yes" && (
             <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="space-y-3 text-left">
               <p className="font-sans-label" style={{ color: "var(--ink-dark)", fontSize: "0.72rem" }}>
                 {pases === 1 ? "Nombre del invitado" : "Nombre de cada invitado"}
@@ -176,7 +228,9 @@ export default function RSVPCard() {
                   type="text"
                   value={n}
                   onChange={(e) => setNombreAt(i, e.target.value)}
-                  placeholder={`Invitado ${i + 1}`}
+                  placeholder={pases === 1 ? "Tu nombre completo" : `Invitado ${i + 1}`}
+                  autoComplete="off"
+                  maxLength={60}
                   className="w-full px-4 py-3 font-serif text-lg outline-none transition-all"
                   style={{
                     backgroundColor: "rgba(245,240,231,0.6)",
@@ -191,11 +245,10 @@ export default function RSVPCard() {
             </motion.div>
           )}
 
-          {/* Botón pill */}
           <button
             type="submit"
-            disabled={enviando || confirmado === null || !puedeEnviar}
-            className="w-full py-4 font-sans-label transition-all disabled:opacity-40"
+            disabled={enviando || frozen}
+            className="w-full py-4 font-sans-label transition-all disabled:opacity-40 disabled:cursor-not-allowed"
             style={{
               backgroundColor: "var(--gold-antique)",
               color: "var(--bg-cream)",
@@ -205,12 +258,20 @@ export default function RSVPCard() {
               boxShadow: "0 6px 18px rgba(176,141,87,0.3)",
             }}
           >
-            {enviando ? "Enviando..." : "Confirmar"}
+            {btnLabel}
           </button>
+
+          {feedback && (
+            <p
+              className="font-serif italic"
+              style={{ color: feedbackColor, fontSize: "1rem", lineHeight: 1.6, textAlign: "center" }}
+            >
+              {feedback}
+            </p>
+          )}
         </form>
       </Stagger>
 
-      {/* Fecha límite con reloj */}
       <Stagger>
         <div className="flex items-center justify-center gap-2 mt-6 mx-auto text-center" style={{ color: "var(--gold-antique)" }}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
