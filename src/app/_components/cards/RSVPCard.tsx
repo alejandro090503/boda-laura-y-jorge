@@ -7,7 +7,7 @@ import AnimatedCard, { Stagger } from "../AnimatedCard";
 
 const PANEL_API = "https://panel-invitados.vercel.app/api/confirmar";
 const RSVP_URL = "https://boda-laura-y-jorge.vercel.app";
-const DEADLINE = new Date(2026, 7, 5, 23, 59, 59, 999); // 5 ago 2026
+const DEADLINE = new Date(2026, 6, 30, 23, 59, 59, 999); // 30 jul 2026
 
 export default function RSVPCard() {
   const searchParams = useSearchParams();
@@ -334,7 +334,7 @@ export default function RSVPCard() {
           <span className="font-serif italic" style={{ color: "var(--ink-dark)", fontSize: "1rem" }}>
             Si te es posible, confirma antes del
             <br />
-            5 de agosto de 2026
+            30 de julio de 2026
           </span>
         </div>
       </Stagger>
