@@ -72,9 +72,41 @@ export default function HeroCard() {
               </p>
             </Stagger>
             <Stagger>
-              <p className="font-serif italic text-lg mb-7" style={{ color: "var(--ink-dark)" }}>
+              <p className="font-serif italic text-lg mb-4" style={{ color: "var(--ink-dark)" }}>
                 y el amor de nuestras familias
               </p>
+            </Stagger>
+
+            <Stagger>
+              <div className="flex gap-2 mb-6" style={{ margin: "0 -0.75rem" }}>
+                <div className="flex-1 text-center">
+                  <p className="font-serif" style={{ color: "var(--ink-dark)", fontSize: "0.65rem", lineHeight: 1.7, whiteSpace: "nowrap" }}>
+                    Elsa María Márquez Hermosillo
+                  </p>
+                  <p className="font-script my-0.5" style={{ color: "var(--gold-antique)", fontSize: "1rem", lineHeight: 1 }}>&amp;</p>
+                  <p className="font-serif" style={{ color: "var(--ink-dark)", fontSize: "0.65rem", lineHeight: 1.7, whiteSpace: "nowrap" }}>
+                    Jacobo Silva Leos
+                  </p>
+                </div>
+                <div className="flex items-center">
+                  <span style={{ width: 1, height: 50, background: "linear-gradient(to bottom, transparent, var(--gold-antique), transparent)", opacity: 0.5, display: "block" }} />
+                </div>
+                <div className="flex-1 text-center">
+                  <p className="font-serif" style={{ color: "var(--ink-dark)", fontSize: "0.65rem", lineHeight: 1.7, whiteSpace: "nowrap" }}>
+                    Olga Lydia Reaza Armenta
+                  </p>
+                  <p className="font-script my-0.5" style={{ color: "var(--gold-antique)", fontSize: "1rem", lineHeight: 1 }}>&amp;</p>
+                  <p className="font-serif" style={{ color: "var(--ink-dark)", fontSize: "0.65rem", lineHeight: 1.7, whiteSpace: "nowrap" }}>
+                    Héctor J. Acosta Núñez
+                  </p>
+                </div>
+              </div>
+            </Stagger>
+
+            <Stagger>
+              <div className="fleuron mb-1">
+                <span style={{ color: "var(--gold-antique)" }}>&#10086;</span>
+              </div>
             </Stagger>
 
             <Stagger>

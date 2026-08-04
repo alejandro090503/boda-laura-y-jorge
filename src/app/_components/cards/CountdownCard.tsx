@@ -53,7 +53,7 @@ export default function CountdownCard() {
 
       <Stagger>
         <p className="font-serif italic text-center" style={{ color: "var(--ink-dark)", fontSize: "1.3rem" }}>
-          Faltan {days ?? "…"} días para el gran día
+          {days ?? "…"} días para el gran día
         </p>
       </Stagger>
     </AnimatedCard>
